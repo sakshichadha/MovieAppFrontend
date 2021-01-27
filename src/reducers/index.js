@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
-import auth from "./auth";
+import authUser from "./authUser";
+import authAdmin from "./authAdmin";
 import alert from "./alert";
-
+import bus from "./bus"
 export default combineReducers({
-  auth,
-  alert
+  authUser,
+  authAdmin,
+  alert,
+  bus
 });

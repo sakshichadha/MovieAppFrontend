@@ -5,7 +5,7 @@ import { setAlert } from "../../actions/alert";
 import { registerUser } from "../../actions/auth";
 import PropTypes from "prop-types";
 
-const UserRegister = ({ setAlert, registerUser, isAuthenticated }) => {
+const UserRegister = ({ setAlert, registerUser, isUserAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,8 +27,8 @@ const UserRegister = ({ setAlert, registerUser, isAuthenticated }) => {
     }
   };
 
-  if (isAuthenticated) {
-    return <Redirect to="/AdminDashboard" />;
+  if (isUserAuthenticated) {
+    return <Redirect to="/userDashboard" />;
   }
 
   return (
@@ -76,7 +76,7 @@ const UserRegister = ({ setAlert, registerUser, isAuthenticated }) => {
           <input type="submit" className="btn btn-primary" value="Register" />
         </form>
         <p className="my-1">
-          Already have an account? <Link to="/login">Sign In</Link>
+          Already have an account? <Link to="/loginUser">Sign In</Link>
         </p>
       </section>
     </Fragment>
@@ -85,11 +85,13 @@ const UserRegister = ({ setAlert, registerUser, isAuthenticated }) => {
 
 UserRegister.propTypes = {
   registerUser: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
+  isUserAuthenticated: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  isUserAuthenticated: state.authUser.isUserAuthenticated,
 });
 
-export default connect(mapStateToProps, { setAlert, registerUser })(UserRegister);
+export default connect(mapStateToProps, { setAlert, registerUser })(
+  UserRegister
+);

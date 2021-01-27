@@ -6,7 +6,9 @@ import {
   REGISTER_ADMIN_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,
-  AUTH_ERROR,
+  ADMIN_LOADED,
+  USER_AUTH_ERROR,
+  ADMIN_AUTH_ERROR,
   LOGIN_USER_SUCCESS,
   LOGIN_ADMIN_SUCCESS,
   LOGIN_FAIL,
@@ -19,7 +21,7 @@ export const loadUser = () => async (dispatch) => {
     setAuthToken(localStorage.token);
   }
   try {
-    const res = await axios.get("api/auth");
+    const res = await axios.get("api/users/");
 
     dispatch({
       type: USER_LOADED,
@@ -27,11 +29,31 @@ export const loadUser = () => async (dispatch) => {
     });
   } catch (err) {
     dispatch({
-      type: AUTH_ERROR,
+      type: USER_AUTH_ERROR,
     });
   }
 };
 
+export const loadAdmin = () => async (dispatch) => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+  try {
+    const res = await axios.get("api/admin");
+
+    dispatch({
+      type: ADMIN_LOADED,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADMIN_AUTH_ERROR,
+    });
+  }
+};
+
+
+//LOGOUT USER
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
   dispatch({ type: CLEAR_PROFILE });
@@ -44,7 +66,7 @@ export const registerUser = (formData) => async (dispatch) => {
 
     dispatch({
       type: REGISTER_USER_SUCCESS,
-      payload: res.data,
+      payload: res.data
     });
     dispatch(loadUser());
   } catch (err) {
@@ -68,7 +90,7 @@ export const registerAdmin = (formData) => async (dispatch) => {
       type: REGISTER_ADMIN_SUCCESS,
       payload: res.data,
     });
-    dispatch(loadUser());
+    dispatch(loadAdmin());
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -119,7 +141,7 @@ export const loginAdmin = (email, password) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(loadUser());
+    dispatch(loadAdmin());
   } catch (err) {
     const errors = err.response.data.errors;
 

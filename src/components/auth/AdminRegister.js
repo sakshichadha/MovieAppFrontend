@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import { registerAdmin } from "../../actions/auth";
 import PropTypes from "prop-types";
 
-const AdminRegister = ({ setAlert, registerAdmin, isAuthenticated }) => {
+const AdminRegister = ({ setAlert, registerAdmin, isAdminAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,8 +26,8 @@ const AdminRegister = ({ setAlert, registerAdmin, isAuthenticated }) => {
     }
   };
 
-  if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
+  if (isAdminAuthenticated) {
+    return <Redirect to="/adminDashboard" />;
   }
 
   return (
@@ -75,7 +75,7 @@ const AdminRegister = ({ setAlert, registerAdmin, isAuthenticated }) => {
           <input type="submit" className="btn btn-primary" value="Register" />
         </form>
         <p className="my-1">
-          Already have an account? <Link to="/login">Sign In</Link>
+          Already have an account? <Link to="/loginAdmin">Sign In</Link>
         </p>
       </section>
     </Fragment>
@@ -84,11 +84,11 @@ const AdminRegister = ({ setAlert, registerAdmin, isAuthenticated }) => {
 
 AdminRegister.propTypes = {
   registerAdmin: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
+  isAdminAuthenticated: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  isAdminAuthenticated: state.authAdmin.isAdminAuthenticated,
 });
 
 export default connect(mapStateToProps, { registerAdmin })(AdminRegister);
