@@ -5,6 +5,8 @@ import {
   SET_ALERT,
   SET_DATE,
   GET_BUS_BY_ID,
+  SET_BUS,
+  SET_SEAT
 } from "./types";
 import { setAlert } from "./alert";
 
@@ -16,6 +18,20 @@ export const setDate = (date) => async (dispatch) => {
     payload: date,
   });
 };
+
+export const setSeat = (num) => async (dispatch) => {
+  dispatch({
+    type: SET_SEAT,
+    payload: num,
+  });
+};
+
+export const setBus = (bus)=>async(dispatch)=>{
+  dispatch({
+    type:SET_BUS,
+    payload:bus
+  })
+}
 export const getBuses = (formData) => async (dispatch) => {
   try {
     const res = await axios.post("api/users/findBus", formData);
@@ -59,13 +75,16 @@ export const addBus = (formData) => async (dispatch) => {
   }
 };
 
-export const getBusById = (id, date) => async (dispatch) => {
+export const getBusById = (bus,date) => async (dispatch) => {
   try {
+
+    dispatch(setBus(bus));
     const query = {
-      bus: id,
+      bus: bus._id,
       date: date
     };
     const res = await axios.post("api/users/getBusById", query);
+
     dispatch({
       type: GET_BUS_BY_ID,
       payload: res.data,

@@ -14,7 +14,10 @@ import UserDashboard from "./components/dashboard/UserDashboard";
 import AdminDashboard from "./components/dashboard/AdminDashboard";
 import GetBuses from "./components/bus/GetBuses";
 import DisplayBuses from "./components/bus/DisplayBuses";
-import BusItem from "./components/bus/BusItem"
+import BusItem from "./components/bus/BusItem";
+import MyTicket from "./components/ticket/MyTicket"
+import BookTicket from "./components/ticket/BookTicket"
+
 import "./App.css";
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -41,6 +44,8 @@ const App = () => {
               <UserPrivateRoute exact path="/findBuses" component={GetBuses} />
               <UserPrivateRoute exact path="/busItem" component={BusItem} />
 
+              <UserPrivateRoute exact path="/bookTicket" component={BookTicket} />
+              <UserPrivateRoute exact path="/myTickets" component={MyTicket} />
               <UserPrivateRoute
                 exact
                 path="/queryResults"

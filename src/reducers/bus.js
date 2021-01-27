@@ -3,6 +3,8 @@ import {
   BUS_ERROR,
   SET_DATE,
   GET_BUS_BY_ID,
+  SET_BUS,
+  SET_SEAT
 } from "../actions/types";
 
 const initialState = {
@@ -10,6 +12,7 @@ const initialState = {
   loading: true,
   date: "",
   bus: "",
+  seat:"",
   seats:Array(40).fill(0)
 };
 
@@ -17,6 +20,16 @@ function busReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
+    case SET_SEAT:
+      return {
+        ...state,
+        seat:payload
+      }
+    case SET_BUS:
+      return{
+        ...state,
+        bus:payload
+      }
     case SET_DATE:
       return {
         ...state,

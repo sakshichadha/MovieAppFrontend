@@ -20,4 +20,6 @@ export const BUS_ERROR = "BUS_ERROR";
 export const SET_DATE = "SET_DATE";
 export const GET_BUS_BY_ID = "GET_BUS_BY_ID";
 export const MY_TICKETS = "MY_TICKETS";
-export const TICKET_ERROR="TICKET_ERROR"
+export const TICKET_ERROR = "TICKET_ERROR";
+export const SET_BUS = "SET_BUS";
+export const SET_SEAT="SET_SEAT"
