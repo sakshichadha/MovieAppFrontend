@@ -11,13 +11,11 @@ const AdminPrivateRoute = ({
     {...rest}
     render={(props) =>
       !isAdminAuthenticated && !loading ? (
-          
         <Redirect to="/loginAdmin" />
-        
       ) : (
-          <Fragment>
-              <h1></h1>
-        <Component {...props} />
+        <Fragment>
+          <h1></h1>
+          <Component {...props} />
         </Fragment>
       )
     }

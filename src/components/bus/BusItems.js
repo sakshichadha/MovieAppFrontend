@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { getBusById } from "../../actions/bus";
 import { connect } from "react-redux";
 const BusItems = ({ getBusById, bus, date }) => {
+  
   return (
     <Fragment>
       <div className="post bg-white p-1 my-1">

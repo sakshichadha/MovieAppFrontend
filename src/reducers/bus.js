@@ -4,7 +4,8 @@ import {
   SET_DATE,
   GET_BUS_BY_ID,
   SET_BUS,
-  SET_SEAT
+  SET_SEAT,
+  GET_MY_FLEET
 } from "../actions/types";
 
 const initialState = {
@@ -13,7 +14,7 @@ const initialState = {
   date: "",
   bus: "",
   seat:"",
-  seats:Array(40).fill(0)
+  seats:""
 };
 
 function busReducer(state = initialState, action) {
@@ -42,6 +43,7 @@ function busReducer(state = initialState, action) {
         loading: false,
       };
 
+      case GET_MY_FLEET:
     case GET_BUSES:
       return {
         ...state,
@@ -49,6 +51,7 @@ function busReducer(state = initialState, action) {
         buses: payload,
         loading: false,
       };
+
     case BUS_ERROR:
       return {
         seats:[],

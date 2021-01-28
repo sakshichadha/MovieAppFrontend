@@ -1,9 +1,11 @@
 import {
     MY_TICKETS,
-    TICKET_ERROR
+    TICKET_ERROR,
+    TICKET_INFO
   } from "../actions/types";
   
   const initialState = {
+    ticket:"",
     tickets:"",
     loading:true
   };
@@ -12,6 +14,12 @@ import {
     const { type, payload } = action;
   
     switch (type) {
+      case TICKET_INFO:
+        return {
+          ...state,
+          ticket: payload,
+          loading:false
+        };
       case MY_TICKETS:
         return {
           ...state,

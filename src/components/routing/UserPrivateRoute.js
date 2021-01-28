@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
-import { Route,Redirect} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Spinner from '../layout/Spinner';
+import React, { Fragment } from "react";
+import { Route, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import Spinner from "../layout/Spinner";
 
 const UserPrivateRoute = ({
   component: Component,
@@ -11,10 +11,17 @@ const UserPrivateRoute = ({
 }) => (
   <Route
     {...rest}
-    render={props =>loading ? (<Spinner />) : isUserAuthenticated ? (<Fragment><h1></h1><Component {...props} /></Fragment>) : (
+    render={(props) =>
+      loading ? (
+        <Spinner />
+      ) : isUserAuthenticated ? (
         <Fragment>
-
-        <Redirect to="/loginUser" />
+          <h1></h1>
+          <Component {...props} />
+        </Fragment>
+      ) : (
+        <Fragment>
+          <Redirect to="/loginUser" />
           <h1>hii</h1>
         </Fragment>
       )
@@ -23,11 +30,11 @@ const UserPrivateRoute = ({
 );
 
 UserPrivateRoute.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  authUser: state.authUser
+const mapStateToProps = (state) => ({
+  authUser: state.authUser,
 });
 
 export default connect(mapStateToProps)(UserPrivateRoute);
