@@ -5,7 +5,8 @@ import {
   GET_BUS_BY_ID,
   SET_BUS,
   SET_SEAT,
-  GET_MY_FLEET
+  GET_MY_FLEET,
+  CANCEL_ALL_TICKETS
 } from "../actions/types";
 
 const initialState = {
@@ -49,6 +50,12 @@ function busReducer(state = initialState, action) {
         ...state,
         seats:[],
         buses: payload,
+        loading: false,
+      };
+    case CANCEL_ALL_TICKETS:
+      return {
+        ...state,
+        seats:  Array(40).fill(1),
         loading: false,
       };
 

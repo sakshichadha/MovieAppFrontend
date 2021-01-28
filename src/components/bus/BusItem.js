@@ -2,9 +2,10 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { setSeat } from "../../actions/bus";
+import {cancelTickets} from "../../actions/ticket"
 import { Link } from "react-router-dom";
 
-const BusItem = ({ seats, setSeat,isUserAuthenticated, isAdminAuthenticated }) => {
+const BusItem = ({ date, bus,seats, setSeat,isUserAuthenticated, isAdminAuthenticated,cancelTickets }) => {
   if (isUserAuthenticated && seats.length) {
     return (
       <Fragment>
@@ -72,7 +73,7 @@ const BusItem = ({ seats, setSeat,isUserAuthenticated, isAdminAuthenticated }) =
             <h1>View Booking</h1>
           </Link>
 
-          <button onClick="">Cancel All Bookings</button>
+          <button onClick={()=>cancelTickets(date,bus)}>Cancel All Bookings</button>
         </div>
       </Fragment>
     );
@@ -86,15 +87,17 @@ BusItem.propTypes = {
   seats: PropTypes.array.isRequired,
   bus: PropTypes.object.isRequired,
   setSeat: PropTypes.func.isRequired,
+  cancelTickets:PropTypes.func.isRequired,
   isUserAuthenticated:PropTypes.bool.isRequired,
   isAdminAuthenticated:PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
+  date: state.bus.date,
   seats: state.bus.seats,
   bus: state.bus.bus,
   isUserAuthenticated:state.authUser.isUserAuthenticated,
   isAdminAuthenticated:state.authAdmin.isAdminAuthenticated
 });
 
-export default connect(mapStateToProps, { setSeat })(BusItem);
+export default connect(mapStateToProps, { setSeat,cancelTickets })(BusItem);

@@ -1,6 +1,12 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { MY_TICKETS, TICKET_ERROR, SET_ALERT, TICKET_INFO,CANCEL_ALL_TICKETS } from "./types";
+import {
+  MY_TICKETS,
+  TICKET_ERROR,
+  SET_ALERT,
+  TICKET_INFO,
+  CANCEL_ALL_TICKETS,
+} from "./types";
 
 export const myTickets = () => async (dispatch) => {
   try {
@@ -79,12 +85,11 @@ export const userInfo = (date, bus, seat) => async (dispatch) => {
   }
 };
 
-
-export const cancelTickets=(date,bus)=>async(dispatch)=>{
+export const cancelTickets = (date, bus) => async (dispatch) => {
   try {
     const query = {
       date: date,
-      bus: bus._id
+      bus: bus._id,
     };
     const res = await axios.post("api/admin/cancelTickets", query);
 
@@ -101,9 +106,7 @@ export const cancelTickets=(date,bus)=>async(dispatch)=>{
 
     dispatch({
       type: TICKET_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
-
-
-
-}
+};
