@@ -1,29 +1,16 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { loginAdmin } from "../../actions/auth";
 
-const AdminLogin = ({ loginAdmin, isAdminAuthenticated }) => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const { email, password } = formData;
-
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    loginAdmin(email, password);
-  };
-
+const LoginAdmin = ({
+  isAdminAuthenticated,
+  onChange,
+  onSubmit,
+  email,
+  password,
+}) => {
   if (isAdminAuthenticated) {
     return <Redirect to="/adminDashboard" />;
   }
-
   return (
     <Fragment>
       <section className="login">
@@ -60,13 +47,4 @@ const AdminLogin = ({ loginAdmin, isAdminAuthenticated }) => {
   );
 };
 
-AdminLogin.propTypes = {
-  loginAdmin: PropTypes.func.isRequired,
-  isAdminAuthenticated: PropTypes.bool,
-};
-
-const mapStateToProps = (state) => ({
-  isAdminAuthenticated: state.authAdmin.isAdminAuthenticated,
-});
-
-export default connect(mapStateToProps, { loginAdmin })(AdminLogin);
+export default LoginAdmin;

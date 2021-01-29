@@ -1,27 +1,8 @@
-import React, { Fragment, useState } from "react";
-import { connect } from "react-redux";
-import { getMyBuses } from "../../actions/bus";
+import React, { Fragment } from "react";
 import { Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
 
-const MyBuses = ({ getMyBuses }) => {
-  const [formData, setFormData] = useState({
-    origin: "",
-    destination: "",
-    date: "",
-    redirect: false,
-  });
-
+const BusLoader = ({ formData, onChange, onSubmit }) => {
   const { origin, destination, date } = formData;
-
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    await getMyBuses({ origin, destination, date });
-    setFormData({ ...formData, redirect: true });
-  };
 
   if (formData.redirect) {
     return <Redirect to="/queryResults" />;
@@ -29,7 +10,7 @@ const MyBuses = ({ getMyBuses }) => {
   return (
     <Fragment>
       <section className="new-bus">
-        <h1 className="large text-primary">Find Bus in Your Fleet</h1>
+        <h1 className="large text-primary">Find Your Perfect Bus</h1>
 
         <form className="form" onSubmit={onSubmit}>
           <div className="form-group">
@@ -67,8 +48,4 @@ const MyBuses = ({ getMyBuses }) => {
   );
 };
 
-MyBuses.propTypes = {
-  getMyBuses: PropTypes.func.isRequired,
-};
-
-export default connect(null, { getMyBuses })(MyBuses);
+export default BusLoader;

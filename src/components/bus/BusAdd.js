@@ -1,25 +1,7 @@
-import React, { Fragment, useState } from "react";
-import { connect } from "react-redux";
-import { addBus } from "../../actions/bus";
-import PropTypes from "prop-types";
-const AddBus = ({ addBus }) => {
-  const [formData, setFormData] = useState({
-    origin: "",
-    destination: "",
-    startTime: "",
-    endTime: "",
-  });
+import React, { Fragment } from "react";
 
+const BusAdd = ({ formData, onChange, onSubmit }) => {
   const { origin, destination, startTime, endTime } = formData;
-
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    addBus({ origin, destination, startTime, endTime });
-    setFormData("");
-  };
 
   return (
     <Fragment>
@@ -71,13 +53,4 @@ const AddBus = ({ addBus }) => {
   );
 };
 
-AddBus.propTypes = {
-  addBus: PropTypes.func.isRequired,
-  isUserAuthenticated: PropTypes.bool,
-};
-
-const mapStateToProps = (state) => ({
-  isAdminAuthenticated: state.authAdmin.isAuthenticated,
-});
-
-export default connect(mapStateToProps, { addBus })(AddBus);
+export default BusAdd;
