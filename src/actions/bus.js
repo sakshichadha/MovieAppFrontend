@@ -7,7 +7,7 @@ import {
   SET_DATE,
   GET_BUS_BY_ID,
   SET_BUS,
-  SET_SEAT
+  SET_SEAT,
 } from "./types";
 import { setAlert } from "./alert";
 
@@ -25,8 +25,6 @@ export const setSeat = (num) => async (dispatch) => {
     payload: num,
   });
 };
-
-
 
 export const setBus = (bus) => async (dispatch) => {
   dispatch({
@@ -59,6 +57,7 @@ export const getBuses = (formData) => async (dispatch) => {
 //ADMIN - Add a bus
 export const addBus = (formData) => async (dispatch) => {
   try {
+    console.log(formData);
     const res = await axios.post("api/admin/addBus", formData);
 
     dispatch({
@@ -104,10 +103,13 @@ export const getBusById = (bus, date) => async (dispatch) => {
   }
 };
 
-
 export const getMyBuses = (formData) => async (dispatch) => {
   try {
-    const res = await axios.get("api/admin/myBuses");
+    const query = {
+      origin: formData.origin,
+      destination: formData.destination,
+    };
+    const res = await axios.post("api/admin/myBuses", query);
     dispatch(setDate(formData.date));
     dispatch({
       type: GET_MY_FLEET,
@@ -125,5 +127,3 @@ export const getMyBuses = (formData) => async (dispatch) => {
     });
   }
 };
-
-

@@ -3,16 +3,23 @@ import PropTypes from "prop-types";
 import { getBusById } from "../../actions/bus";
 import { connect } from "react-redux";
 const BusItems = ({ getBusById, bus, date }) => {
-  
   return (
     <Fragment>
-      <div className="post bg-white p-1 my-1">
-        <button onClick={() => getBusById(bus,date)}>View Seats</button>
-        <h3>{bus.origin}</h3>
-        <h3>{bus.destination}</h3>
-        <h3>{bus.startTime}</h3>
-        <h3>{bus.endTime}</h3>
-      </div>
+      <tr>
+        <td>{bus.name}</td>
+        <td>{bus.origin}</td>
+        <td>{bus.destination}</td>
+        <td>{bus.startTime}</td>
+        <td>{bus.endTime}</td>
+        <td>
+          <button
+            className="btn btn-primary"
+            onClick={() => getBusById(bus, date)}
+          >
+            View Seats
+          </button>
+        </td>
+      </tr>
     </Fragment>
   );
 };

@@ -28,8 +28,8 @@ const MyBuses = ({ getMyBuses }) => {
   }
   return (
     <Fragment>
-      <section className="landing">
-        <h1 className="large text-primary">Find Your Perfect Bus</h1>
+      <section className="new-bus">
+        <h1 className="large text-primary">Find Bus in Your Fleet</h1>
 
         <form className="form" onSubmit={onSubmit}>
           <div className="form-group">

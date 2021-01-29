@@ -44,7 +44,7 @@ function busReducer(state = initialState, action) {
         loading: false,
       };
 
-      case GET_MY_FLEET:
+    case GET_MY_FLEET:
     case GET_BUSES:
       return {
         ...state,

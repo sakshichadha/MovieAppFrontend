@@ -23,7 +23,7 @@ const AddBus = ({ addBus }) => {
 
   return (
     <Fragment>
-      <section className="landing">
+      <section className="new-bus">
         <h1 className="large text-primary">Add New Bus to your Fleet</h1>
 
         <form className="form" onSubmit={onSubmit}>

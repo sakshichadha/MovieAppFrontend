@@ -52,7 +52,6 @@ export const loadAdmin = () => async (dispatch) => {
   }
 };
 
-
 //LOGOUT USER
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
@@ -66,7 +65,7 @@ export const registerUser = (formData) => async (dispatch) => {
 
     dispatch({
       type: REGISTER_USER_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
     dispatch(loadUser());
   } catch (err) {

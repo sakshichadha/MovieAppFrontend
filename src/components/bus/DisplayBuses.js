@@ -4,35 +4,72 @@ import PropTypes from "prop-types";
 import BusItems from "./BusItems";
 import BusItem from "./BusItem";
 
-const DisplayBuses = ({ bus, date, isUserAuthenticated, isAdminAuthenticated}) => {
-
-  if(isUserAuthenticated){
-  return (
-    <Fragment>
-      
-      <BusItem />
-      <h1 className="large text-primary">Available Buses</h1>
-      <div className="posts">
-        {bus.buses.map((bus) => (
-          <BusItems key={bus._id} bus={bus} date={date} />
-        ))}
-      </div>
-    </Fragment>
-  )}
-  if(isAdminAuthenticated){
+const DisplayBuses = ({
+  bus,
+  date,
+  isUserAuthenticated,
+  isAdminAuthenticated,
+}) => {
+  if (isUserAuthenticated) {
     return (
       <Fragment>
-        
-        <BusItem />
-        <h1 className="large text-primary">Your Buses</h1>
-        <div className="posts">
-          {bus.buses.map((bus) => (
-            <BusItems key={bus._id} bus={bus} date={date} />
-          ))}
+        <div className="dashboard">
+          <div class="flex-container">
+            <div class="flex-child magenta">
+              <h1 className="large text-primary m-1 pos">Available Buses</h1>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Origin</th>
+                  <th>Destination</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th>Seats</th>
+                </tr>
+                {bus.buses.map((bus) => (
+                  <BusItems key={bus._id} bus={bus} date={date} />
+                ))}
+              </table>
+            </div>
+
+            <div class="flex-child green">
+              <BusItem />
+            </div>
+          </div>
         </div>
       </Fragment>
-    )}
-  
+    );
+  }
+  if (isAdminAuthenticated) {
+    return (
+      <Fragment>
+        <div className="dashboard">
+          <div class="flex-container">
+            <div class="flex-child magenta">
+              <h1 className="large text-primary m-1 pos">Available Buses</h1>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Origin</th>
+                  <th>Destination</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th>Seats</th>
+                </tr>
+                {bus.buses.map((bus) => (
+                  <BusItems key={bus._id} bus={bus} date={date} />
+                ))}
+              </table>
+            </div>
+
+            <div class="flex-child green">
+              <BusItem />
+            </div>
+          </div>
+        </div>
+      </Fragment>
+    );
+  }
 };
 
 DisplayBuses.propTypes = {
@@ -41,7 +78,7 @@ DisplayBuses.propTypes = {
 
 const mapStateToProps = (state) => ({
   isUserAuthenticated: state.authUser.isUserAuthenticated,
-  isAdminAuthenticated:state.authAdmin.isAdminAuthenticated,
+  isAdminAuthenticated: state.authAdmin.isAdminAuthenticated,
   bus: state.bus,
   date: state.bus.date,
 });

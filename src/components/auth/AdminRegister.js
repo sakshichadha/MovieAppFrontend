@@ -32,8 +32,8 @@ const AdminRegister = ({ setAlert, registerAdmin, isAdminAuthenticated }) => {
 
   return (
     <Fragment>
-      <section className="landing">
-        <h1 className="large text-primary">Sign Up</h1>
+      <section className="register">
+        <h1 className="large text-primary">Admin Sign Up</h1>
 
         <form className="form" onSubmit={onSubmit}>
           <div className="form-group">

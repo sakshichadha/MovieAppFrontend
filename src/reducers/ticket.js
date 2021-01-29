@@ -1,7 +1,8 @@
 import {
     MY_TICKETS,
     TICKET_ERROR,
-    TICKET_INFO
+    TICKET_INFO,
+    CANCEL_TICKET
   } from "../actions/types";
   
   const initialState = {
@@ -26,6 +27,12 @@ import {
           tickets: payload,
           loading:false
         };
+        case CANCEL_TICKET:
+          return {
+            ...state,
+            tickets:state.tickets.filter((ticket) => ticket.id !== payload),
+            loading:false
+          }
       case TICKET_ERROR:
         return {
           ...state,

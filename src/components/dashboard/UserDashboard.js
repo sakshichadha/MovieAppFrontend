@@ -6,10 +6,9 @@ import GetBuses from "../bus/GetBuses"
 const UserDashboard = () => {
   return (
     <Fragment>
-
+<div class="dashboard">
       <GetBuses/>
-        <h1>sdenglhtk</h1>
-      
+      </div>
     </Fragment>
   );
 };

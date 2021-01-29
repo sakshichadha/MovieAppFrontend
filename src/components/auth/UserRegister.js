@@ -33,7 +33,7 @@ const UserRegister = ({ setAlert, registerUser, isUserAuthenticated }) => {
 
   return (
     <Fragment>
-      <section className="landing">
+      <section className="register">
         <h1 className="large text-primary">Sign Up</h1>
 
         <form className="form" onSubmit={onSubmit}>

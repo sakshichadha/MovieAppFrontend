@@ -9,13 +9,16 @@ const UserInfo = ({ bus, date, seat, ticket, loading, userInfo }) => {
   }, []);
 
   if (!loading) {
-    return <Fragment>
+    return (
+      <Fragment>
+        <div className="login">
         <h2>Name:{ticket.name}</h2>
-
         <h2>Phone:{ticket.phone}</h2>
         <h2>Email:{ticket.email}</h2>
         <h2>Seat:{ticket.seat}</h2>
-        </Fragment>;
+        </div>
+      </Fragment>
+    );
   } else {
     return <Spinner />;
   }

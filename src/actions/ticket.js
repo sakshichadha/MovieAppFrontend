@@ -6,6 +6,7 @@ import {
   SET_ALERT,
   TICKET_INFO,
   CANCEL_ALL_TICKETS,
+  CANCEL_TICKET,
 } from "./types";
 
 export const myTickets = () => async (dispatch) => {
@@ -85,6 +86,30 @@ export const userInfo = (date, bus, seat) => async (dispatch) => {
   }
 };
 
+export const cancelTicket = (id) => async (dispatch) => {
+  try {
+    const query = {
+      id: id,
+    };
+    await axios.post("api/users/cancelTicket", query);
+
+    dispatch({
+      type: CANCEL_TICKET,
+      payload: id,
+    });
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: TICKET_ERROR,
+    });
+  }
+};
+
 export const cancelTickets = (date, bus) => async (dispatch) => {
   try {
     const query = {
@@ -106,7 +131,7 @@ export const cancelTickets = (date, bus) => async (dispatch) => {
 
     dispatch({
       type: TICKET_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: { msg: err.response.statusText, status: err.response.status },
     });
   }
 };

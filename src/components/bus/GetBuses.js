@@ -1,14 +1,15 @@
 import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { getBuses } from "../../actions/bus";
-import {Redirect} from "react-router-dom"
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-const  GetBuses= ({ getBuses}) => {
+
+const GetBuses = ({ getBuses }) => {
   const [formData, setFormData] = useState({
     origin: "",
     destination: "",
     date: "",
-    redirect:false
+    redirect: false,
   });
 
   const { origin, destination, date } = formData;
@@ -19,16 +20,15 @@ const  GetBuses= ({ getBuses}) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     await getBuses({ origin, destination, date });
-    setFormData({...formData,redirect:true})
+    setFormData({ ...formData, redirect: true });
   };
 
-  if(formData.redirect)
-{
-return <Redirect to="/queryResults"/>
-}
+  if (formData.redirect) {
+    return <Redirect to="/queryResults" />;
+  }
   return (
     <Fragment>
-      <section className="landing">
+      <section className="new-bus">
         <h1 className="large text-primary">Find Your Perfect Bus</h1>
 
         <form className="form" onSubmit={onSubmit}>
@@ -59,10 +59,9 @@ return <Redirect to="/queryResults"/>
               onChange={onChange}
             />
           </div>
-          
+
           <input type="submit" className="btn btn-primary" value="Find Buses" />
         </form>
-        
       </section>
     </Fragment>
   );
@@ -74,9 +73,7 @@ GetBuses.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  isUserAuthenticated:state.authUser.isUserAuthenticated,
-  });
+  isUserAuthenticated: state.authUser.isUserAuthenticated,
+});
 
-export default connect(mapStateToProps, {getBuses })(
-  GetBuses
-);
+export default connect(mapStateToProps, { getBuses })(GetBuses);

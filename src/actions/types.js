@@ -12,7 +12,6 @@ export const LOGOUT = "LOGOUT";
 export const CLEAR_PROFILE = "CLEAR_PROFILE";
 export const SET_ALERT = "SET_ALERT";
 export const REMOVE_ALERT = "REMOVE_ALERT";
-
 export const GET_BUSES = "GET_BUSES";
 export const ADD_BUS = "ADD_BUS";
 export const BUS_ERROR = "BUS_ERROR";
@@ -22,7 +21,7 @@ export const MY_TICKETS = "MY_TICKETS";
 export const TICKET_ERROR = "TICKET_ERROR";
 export const SET_BUS = "SET_BUS";
 export const SET_SEAT = "SET_SEAT";
-
 export const GET_MY_FLEET = "GET_MY_FLEET";
 export const TICKET_INFO = "TICKET_INFO";
-export const CANCEL_ALL_TICKETS="CANCEL_ALL_TICKETS"
+export const CANCEL_ALL_TICKETS = "CANCEL_ALL_TICKETS";
+export const CANCEL_TICKET = "CANCEL_TICKET";

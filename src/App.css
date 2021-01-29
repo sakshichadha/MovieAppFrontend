@@ -1,9 +1,10 @@
 :root {
-  --primary-color: #17a2b8;
+  --primary-color: #3483dd;
   --dark-color: #343a40;
-  --light-color: #f4f4f4;
+  --light-color: #f4f4f45e;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --custom-color: #007497;
 }
 
 * {
@@ -35,17 +36,19 @@ img {
 
 /* Utilities */
 .container {
-  max-width: 1100px;
+  background: url("./static/background.jpg") no-repeat center center/cover;;
+  max-width: 100%;
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
+  margin-top: 3rem;
   margin-bottom: 3rem;
+  height:100vh
 }
 
 /* Text Styles*/
 .x-large {
-  font-size: 4rem;
+  font-size: 5rem;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
@@ -67,6 +70,10 @@ img {
 
 .text-primary {
   color: var(--primary-color);
+}
+
+.text-post {
+  color: #333;
 }
 
 .text-dark {
@@ -136,6 +143,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border-radius: 10px;
 }
 
 .badge {
@@ -155,6 +163,10 @@ img {
   color: #333;
 }
 
+.btn-custom {
+  background: var(--custom-color);
+  color: #fff;
+}
 .btn-primary,
 .bg-primary,
 .badge-primary,
@@ -199,8 +211,17 @@ img {
 .bg-white,
 .badge-white,
 .alert-white {
-  background: #fff;
+  background: rgb(189, 186, 186);
   color: #333;
+  border: #ccc solid 1px;
+}
+
+.btn-blue,
+.bg-white,
+.badge-white,
+.alert-white {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 112, 144);
   border: #ccc solid 1px;
 }
 
@@ -250,11 +271,14 @@ img {
 .form input[type="date"],
 .form select,
 .form textarea {
+  margin-left:69px;
+  position: center;
   display: block;
-  width: 100%;
+  width: 80%;
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .form input[type="submit"],
@@ -271,21 +295,6 @@ button {
   width: 4rem;
 }
 
-.form .social-input i.fa-twitter {
-  color: #38a1f3;
-}
-.form .social-input i.fa-facebook {
-  color: #3b5998;
-}
-.form .social-input i.fa-instagram {
-  color: #3f729b;
-}
-.form .social-input i.fa-youtube {
-  color: #c4302b;
-}
-.form .social-input i.fa-linkedin {
-  color: #0077b5;
-}
 
 .table th,
 .table td {
@@ -307,7 +316,7 @@ button {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
+  border-bottom: solid 2px var(--primary-color);
   opacity: 0.9;
 }
 
@@ -329,9 +338,72 @@ button {
   margin-right: 0.6rem;
 }
 
+.dashboard {
+  padding-top:5%;
+  position: relative;
+  background: url("./static/dashboard.jpg") no-repeat center center/cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.login {
+  margin-left:35%;
+  margin-top:200px;
+  padding-top: 50px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  background-color: rgb(204, 202, 202);
+  height: 30vh;
+  width: 60vh;
+  opacity: .9;
+}
+.my-tickets {
+  padding-top: 50px;
+  border-radius: 20px;
+  text-align: center;
+ 
+}
+.register {
+  margin-left:35%;
+  margin-top:10%;
+  padding-top: 50px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  background-color: rgb(226, 225, 225);
+  height: 40vh;
+  width: 60vh;
+  opacity: .9;
+}
+.confirmation {
+  margin-left:35%;
+  margin-top:10%;
+  padding-top: 50px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  background-color: rgb(226, 225, 225);
+  height: 45vh;
+  width: 60vh;
+  opacity: .9;
+}
+.new-bus {
+  margin-left:35%;
+  margin-top:2%;
+  padding-top: 50px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  background-color: rgb(197, 197, 197);
+  height: 35vh;
+  width: 60vh;
+  opacity: .9;
+}
 /* Landing Page */
 .landing {
   position: relative;
+  background: url("./static/container.jpg") no-repeat center center/cover;
   height: 100vh;
 }
 
@@ -346,6 +418,25 @@ button {
   justify-content: center;
   text-align: center;
 }
+
+
+.flex-container {
+  display: flex;
+  margin:50px;
+}
+
+.flex-child {
+  flex: 1;
+  border: 2px solid rgb(230, 228, 228);
+  border-radius: 10px;
+  margin-right:100px;
+}  
+
+.flex-child:first-child {
+  margin-right: 20px;
+  width:500px;
+  flex: 0 0 1500px
+} 
 
 /* Profiles Page */
 .profile {
@@ -456,12 +547,76 @@ button {
   background: var(--primary-color);
   padding: 0.5rem;
 }
+.post-comment-section {
+  background-color: rgb(241, 240, 240);
+}
+
+.pos{
+  text-align: center;
+}
+
+.confirm-details{
+  margin-left:70px;
+  text-align: left;
+  font-size: 20px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+/* 
+.grid-container {
+  display: grid;
+  height: 100px;
+  align-content: space-evenly;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: #909294;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 2px 0;
+  font-size: 10px;
+} */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  font-size:20px;
+  font-weight: 200;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+tr:nth-child(even) {background-color: #f2f2f2; text-align:center;padding:50px}
+
+tr:nth-child(odd) {background-color: #b8b8b8; text-align:center;padding:50px}
+/* 
+tr:hover {background-color:#02b7ee;} */
+
+tr{
+  height:100px
+}
+th {
+  background-color: #4CAF50;
+  color: white;
+}
 
 .post {
   display: grid;
+  grid-template-columns: auto auto auto auto;
   grid-template-columns: 1fr 4fr;
   grid-gap: 2rem;
   align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius:20px;
+  padding:
 }
 
 .post > div:first-child {
@@ -474,7 +629,7 @@ button {
 
 .post .comment-count {
   background: var(--light-color);
-  color: var(--primary-color);
+  color: #fff;
   padding: 0.1rem 0.2rem;
   border-radius: 5px;
   font-size: 0.8rem;
@@ -506,7 +661,7 @@ button {
   }
 
   .lead {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 
   /* Navbar */
@@ -575,8 +730,8 @@ button {
 }
 
 .tableContainer {
-  position:left;
-  width: 250px;
+  position: center;
+  width: 440px;
   margin: auto;
 }
 /* (
@@ -587,9 +742,9 @@ button {
                 {seatNumber}{' '}
               </td>
             ) */
-.grid td {
-  width: 40px;
-  height: 30px;
+.grid tr td {
+  width: 100px;
+  height: 50px;
   border-radius: 5px;
   padding-bottom: 5px;
   padding-top: 2px;
@@ -598,7 +753,10 @@ button {
   float: left;
   margin: 5px;
 }
-
+::selection {
+  color: gold;
+  background-color: red;
+}
 .grid td:hover {
   opacity: 0.2;
   cursor: pointer;
@@ -620,5 +778,10 @@ button {
 
 .available {
   background: rgb(0, 255, 64);
+  color: rgb(0, 0, 0);
+}
+
+.selected {
+  background: rgb(255, 157, 0);
   color: rgb(0, 0, 0);
 }

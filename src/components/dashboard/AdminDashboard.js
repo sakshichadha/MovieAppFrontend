@@ -1,15 +1,17 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import AddBus from "../bus/AddBus"
-import {Link} from "react-router-dom"
+import AddBus from "../bus/AddBus";
+import MyBuses from "../bus/MyBuses"
 const AdminDashboard = () => {
   return (
     <Fragment>
-      <button><Link to="/myBuses">Find Bus</Link></button>
-        <h1>Admin Dashboard</h1>
-      <AddBus />
-
+      <div className="dashboard">
+        <button></button>
+        
+        <AddBus />
+        <MyBuses/>
+      </div>
     </Fragment>
   );
 };
