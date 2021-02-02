@@ -36,14 +36,14 @@ img {
 
 /* Utilities */
 .container {
-  background: url("./static/background.jpg") no-repeat center center/cover;;
+  background: url("./static/background.jpg") no-repeat center center/cover;
   max-width: 100%;
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
-  height:100vh
+  height: 100vh;
 }
 
 /* Text Styles*/
@@ -174,6 +174,11 @@ img {
   background: var(--primary-color);
   color: #fff;
 }
+.btn-login {
+  width: 250px;
+  background: var(--primary-color);
+  color: #fff;
+}
 
 .btn-light,
 .bg-light,
@@ -262,7 +267,32 @@ img {
 .form .form-text {
   display: block;
   margin-top: 0.3rem;
-  color: #888;
+  color: rgb(255, 255, 255);
+}
+
+.form1 input[type="text"],
+.form1 input[type="email"],
+.form1 input[type="password"],
+.form1 input[type="date"],
+.form1 select,
+.form1 textarea {
+  margin-left: 115px;
+  position: center;
+  display: block;
+  width: 65%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.form1 .form1-group {
+  margin: 1.2rem 0;
+}
+
+.form1 .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: rgb(255, 255, 255);
 }
 
 .form input[type="text"],
@@ -271,10 +301,10 @@ img {
 .form input[type="date"],
 .form select,
 .form textarea {
-  margin-left:69px;
+  margin-left: 93px;
   position: center;
   display: block;
-  width: 80%;
+  width: 65%;
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
@@ -294,7 +324,6 @@ button {
   padding: 0.5rem;
   width: 4rem;
 }
-
 
 .table th,
 .table td {
@@ -339,46 +368,53 @@ button {
 }
 
 .dashboard {
-  padding-top:5%;
+  padding-top: 5%;
   position: relative;
-  background: url("./static/dashboard.jpg") no-repeat center center/cover;
+  background: url("./static/login.jpg") no-repeat center center/cover;
   width: 100%;
   height: 100vh;
 }
-
+.one-edge-shadow {
+  -webkit-box-shadow: 0 10px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 10px 6px -6px black;
+}
 .login {
-  margin-left:35%;
-  margin-top:200px;
+  margin-left: 40%;
+  margin-top: 250px;
   padding-top: 50px;
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
-  position: relative;
-  background-color: rgb(204, 202, 202);
-  height: 30vh;
-  width: 60vh;
-  opacity: .9;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  height: 35vh;
+  width: 40vh;
+  opacity: 0.9;
+}
+.login-background {
+  height: 100vh;
+  background: url("./static/login.jpg") no-repeat center center/cover;
 }
 .my-tickets {
   padding-top: 50px;
   border-radius: 20px;
   text-align: center;
- 
 }
 .register {
-  margin-left:35%;
-  margin-top:10%;
+  margin-left: 40%;
+  margin-top: 10%;
   padding-top: 50px;
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
-  position: relative;
-  background-color: rgb(226, 225, 225);
+  position: absolute;
+  background-color: rgb(255, 255, 255);
   height: 40vh;
-  width: 60vh;
-  opacity: .9;
+  width: 40vh;
+  opacity: 0.9;
 }
 .confirmation {
-  margin-left:35%;
-  margin-top:10%;
+  margin-left: 35%;
+  margin-top: 10%;
   padding-top: 50px;
   border-radius: 20px;
   text-align: center;
@@ -386,24 +422,24 @@ button {
   background-color: rgb(226, 225, 225);
   height: 45vh;
   width: 60vh;
-  opacity: .9;
+  opacity: 0.9;
 }
 .new-bus {
-  margin-left:35%;
-  margin-top:2%;
+  margin-left: 40%;
+  margin-top: 10%;
   padding-top: 50px;
   border-radius: 20px;
   text-align: center;
-  position: relative;
-  background-color: rgb(197, 197, 197);
-  height: 35vh;
-  width: 60vh;
-  opacity: .9;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  height: 30vh;
+  width: 50vh;
+  opacity: 1;
 }
 /* Landing Page */
 .landing {
   position: relative;
-  background: url("./static/container.jpg") no-repeat center center/cover;
+  background: url("./static/landing.jpg") no-repeat center center/cover;
   height: 100vh;
 }
 
@@ -419,26 +455,28 @@ button {
   text-align: center;
 }
 
-
 .flex-container {
   display: flex;
-  margin:50px;
+  margin: 20px;
 }
 
 .flex-child {
   flex: 1;
-  border: 2px solid rgb(230, 228, 228);
   border-radius: 10px;
-  margin-right:100px;
-}  
+  margin-right: 50px;
+}
 
 .flex-child:first-child {
   margin-right: 20px;
-  width:500px;
-  flex: 0 0 1500px
-} 
+  width: 500px;
+  flex: 0 0 1000px;
+}
 
-/* Profiles Page */
+.green {
+  margin-top: 5%;
+}
+/*
+Profiles Page */
 .profile {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
@@ -551,16 +589,22 @@ button {
   background-color: rgb(241, 240, 240);
 }
 
-.pos{
+.pos {
   text-align: center;
 }
 
-.confirm-details{
-  margin-left:70px;
+.confirm-details {
+  margin-left: 70px;
   text-align: left;
   font-size: 20px;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
 
+.userinfo{
+  margin: 70px;
+  text-align: left;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 /* 
@@ -581,42 +625,50 @@ button {
   font-size: 10px;
 } */
 
-table {
+/* table {
   border-collapse: collapse;
   width: 100%;
 }
 
-th, td {
+th,
+td {
   text-align: left;
   padding: 8px;
-  font-size:20px;
+  font-size: 20px;
   font-weight: 200;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2; text-align:center;padding:50px}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 50px;
+}
 
-tr:nth-child(odd) {background-color: #b8b8b8; text-align:center;padding:50px}
+tr:nth-child(odd) {
+  background-color: #b8b8b8;
+  text-align: center;
+  padding: 50px;
+}
 /* 
 tr:hover {background-color:#02b7ee;} */
 
-tr{
-  height:100px
+/* tr {
+  height: 100px;
 }
 th {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
-}
-
-.post {
+} */
+*/ .post {
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-template-columns: 1fr 4fr;
   grid-gap: 2rem;
   align-items: center;
   background-color: rgb(255, 255, 255);
-  border-radius:20px;
-  padding:
+  border-radius: 20px;
+  padding: ;
 }
 
 .post > div:first-child {
@@ -636,7 +688,7 @@ th {
 }
 
 .post .post-date {
-  color: #aaa;
+  color: rgb(255, 255, 255);
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
 }
@@ -730,9 +782,14 @@ th {
 }
 
 .tableContainer {
+  margin-top: 20%;
+  background-color: #ffffff;
   position: center;
-  width: 440px;
+  width: 500px;
   margin: auto;
+  border-radius: 20px;
+  border: 2px solid orange;
+  padding-left: 20px;
 }
 /* (
               <td
@@ -747,15 +804,10 @@ th {
   height: 50px;
   border-radius: 5px;
   padding-bottom: 5px;
-  padding-top: 2px;
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   text-align: center;
   float: left;
   margin: 5px;
-}
-::selection {
-  color: gold;
-  background-color: red;
 }
 .grid td:hover {
   opacity: 0.2;
@@ -763,25 +815,18 @@ th {
 }
 
 .reserved {
-  background: rgb(252, 2, 2);
   color: rgb(255, 255, 255);
   display: inline-block;
 }
 
-.reserved::after {
-  content: "";
-}
-
-.available::after {
-  content: "";
-}
-
 .available {
-  background: rgb(0, 255, 64);
+  /* background: rgb(0, 255, 64); */
   color: rgb(0, 0, 0);
 }
 
 .selected {
-  background: rgb(255, 157, 0);
+
+  background-color: rgb(255, 157, 0);
   color: rgb(0, 0, 0);
+  border: 2px solid orange;
 }

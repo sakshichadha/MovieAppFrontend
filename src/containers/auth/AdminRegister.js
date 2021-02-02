@@ -2,7 +2,9 @@ import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { registerAdmin } from "../../actions/auth";
 import PropTypes from "prop-types";
-import RegisterAdmin from "../../components/auth/RegisterAdmin";
+import Register from "../../components/auth/Register";
+import { setAlert } from "../../actions/alert";
+import { Redirect } from "react-router-dom";
 const AdminRegister = ({ setAlert, registerAdmin, isAdminAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,15 +26,19 @@ const AdminRegister = ({ setAlert, registerAdmin, isAdminAuthenticated }) => {
       registerAdmin({ name, email, password });
     }
   };
-
+  if (isAdminAuthenticated) {
+    return <Redirect to="/adminDashboard" />;
+  }
   return (
     <Fragment>
-      <RegisterAdmin
-        isAdminAuthenticated={isAdminAuthenticated}
-        onChange={onChange}
-        onSubmit={onSubmit}
-        formData={formData}
-      />
+      <div className="">
+        <Register
+          onChange={onChange}
+          onSubmit={onSubmit}
+          formData={formData}
+          user="Admin"
+        />
+      </div>
     </Fragment>
   );
 };
@@ -40,10 +46,13 @@ const AdminRegister = ({ setAlert, registerAdmin, isAdminAuthenticated }) => {
 AdminRegister.propTypes = {
   registerAdmin: PropTypes.func.isRequired,
   isAdminAuthenticated: PropTypes.bool,
+  setAlert: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   isAdminAuthenticated: state.authAdmin.isAdminAuthenticated,
 });
 
-export default connect(mapStateToProps, { registerAdmin })(AdminRegister);
+export default connect(mapStateToProps, { registerAdmin, setAlert })(
+  AdminRegister
+);

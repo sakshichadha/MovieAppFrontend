@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { addBus } from "../../actions/bus";
 import PropTypes from "prop-types";
-import BusAdd from "../../components/bus/BusAdd";
+import NewBus from "../../components/bus/NewBus";
 const AddBus = ({ addBus }) => {
   const [formData, setFormData] = useState({
     origin: "",
@@ -19,12 +19,17 @@ const AddBus = ({ addBus }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     addBus({ origin, destination, startTime, endTime });
-    setFormData("");
+    setFormData({
+      origin: "",
+      destination: "",
+      startTime: "",
+      endTime: "",
+    });
   };
 
   return (
     <Fragment>
-      <BusAdd onChange={onChange} onSubmit={onSubmit} formData={formData} />
+      <NewBus onChange={onChange} onSubmit={onSubmit} formData={formData} />
     </Fragment>
   );
 };

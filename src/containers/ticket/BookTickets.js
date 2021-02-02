@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,Fragment } from "react";
 import { connect } from "react-redux";
 import { bookBus } from "../../actions/ticket";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
-import BookTicketItem from "../../components/ticket/BookTicketItem";
-const BookTicket = ({ bookBus, bus, date, seat }) => {
+import DetailForm from "../../components/ticket/DetailForm";
+const BookTickets = ({ bookBus, bus, date, seat }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,9 +26,12 @@ const BookTicket = ({ bookBus, bus, date, seat }) => {
   if (formData.redirect) {
     return <Redirect to="/userDashboard" />;
   }
-
+    
   return (
-    <BookTicketItem
+    <Fragment>
+      
+      <div className="">
+    <DetailForm
       formData={formData}
       onChange={onChange}
       onSubmit={onSubmit}
@@ -36,10 +39,13 @@ const BookTicket = ({ bookBus, bus, date, seat }) => {
       date={date}
       seat={seat}
     />
+    </div>
+    </Fragment>
   );
-};
+}
 
-BookTicket.propTypes = {
+
+BookTickets.propTypes = {
   bookBus: PropTypes.func.isRequired,
   bus: PropTypes.object.isRequired,
   date: PropTypes.string.isRequired,
@@ -52,4 +58,4 @@ const mapStateToProps = (state) => ({
   seat: state.bus.seat,
 });
 
-export default connect(mapStateToProps, { bookBus })(BookTicket);
+export default connect(mapStateToProps, { bookBus })(BookTickets);

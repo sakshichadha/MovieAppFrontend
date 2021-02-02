@@ -1,15 +1,11 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import AddBus from "../bus/AddBus";
 import MyBuses from "../bus/MyBuses";
 const AdminDashboard = () => {
   return (
     <Fragment>
-      <div className="dashboard">
-        <AddBus />
-        <MyBuses />
-      </div>
+      <MyBuses/>
     </Fragment>
   );
 };

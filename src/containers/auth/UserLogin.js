@@ -2,7 +2,9 @@ import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { loginUser } from "../../actions/auth";
-import LoginUser from "../../components/auth/LoginUser";
+import Login from "../../components/auth/Login";
+
+import { Redirect } from "react-router-dom";
 const UserLogin = ({ loginUser, isUserAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: "",
@@ -18,14 +20,18 @@ const UserLogin = ({ loginUser, isUserAuthenticated }) => {
     e.preventDefault();
     loginUser(email, password);
   };
-
+  if (isUserAuthenticated) {
+    return <Redirect to="/userDashboard" />;
+  }
   return (
     <Fragment>
-      <LoginUser
+      <Login
         isUserAuthenticated={isUserAuthenticated}
         onChange={onChange}
         onSubmit={onSubmit}
-        formData={formData}
+        email={email}
+        password={password}
+        user="User"
       />
     </Fragment>
   );

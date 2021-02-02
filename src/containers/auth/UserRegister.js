@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { registerUser } from "../../actions/auth";
 import PropTypes from "prop-types";
-import RegisterUser from "../../components/auth/RegisterUser";
+import Register from "../../components/auth/Register";
+
+import { Redirect } from "react-router-dom";
 const UserRegister = ({ setAlert, registerUser, isUserAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -26,14 +28,19 @@ const UserRegister = ({ setAlert, registerUser, isUserAuthenticated }) => {
     }
   };
 
+  if (isUserAuthenticated) {
+    return <Redirect to="/userDashboard" />;
+  }
   return (
     <Fragment>
-      <RegisterUser
-        isUserAuthenticated={isUserAuthenticated}
-        onChange={onChange}
-        onSubmit={onSubmit}
-        formData={formData}
-      />
+      <div className="">
+        <Register
+          onChange={onChange}
+          onSubmit={onSubmit}
+          formData={formData}
+          user="User"
+        />
+      </div>
     </Fragment>
   );
 };

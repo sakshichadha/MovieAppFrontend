@@ -6,7 +6,7 @@ import GetBuses from "../bus/GetBuses";
 const UserDashboard = () => {
   return (
     <Fragment>
-      <div class="dashboard">
+      <div class="">
         <GetBuses />
       </div>
     </Fragment>

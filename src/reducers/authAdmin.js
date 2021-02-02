@@ -36,6 +36,8 @@ import {
   
       case ADMIN_AUTH_ERROR:
       case LOGOUT:
+
+        localStorage.removeItem("token");
         return {
           ...state,
           token: null,

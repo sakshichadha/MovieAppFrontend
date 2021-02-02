@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 
-const UserDisplayBuses = ({ bus, date }) => {
+const UserDisplayBuses = ({ bus, date, BusItems, BusItem }) => {
   return (
     <Fragment>
-      <div className="dashboard">
+      <div className="">
         <div class="flex-container">
           <div class="flex-child magenta">
             <h1 className="large text-primary m-1 pos">Available Buses</h1>

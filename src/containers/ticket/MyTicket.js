@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { myTickets, cancelTicket } from "../../actions/ticket";
-import MyTicketItem from "../../components/ticket/MyTicketItem";
+import MyTickets from "../../components/ticket/MyTickets";
 const MyTicket = ({ tickets, myTickets, cancelTicket }) => {
   useEffect(() => {
     myTickets();
@@ -11,11 +11,11 @@ const MyTicket = ({ tickets, myTickets, cancelTicket }) => {
   if (tickets) {
     return (
       <Fragment>
-        <MyTicketItem tickets={tickets} cancelTicket={cancelTicket} />
+        <MyTickets tickets={tickets} cancelTicket={cancelTicket} />
       </Fragment>
     );
   } else {
-    return <h1>Hii</h1>;
+    return <h1></h1>;
   }
 };
 

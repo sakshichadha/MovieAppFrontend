@@ -1,30 +1,24 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
-import GuestNavbar from "../../components/layout/GuestNavbar";
-import AdminNavbar from "../../components/layout/AdminNavbar";
-import UserNavbar from "../../components/layout/UserNavbar";
+import GuestNav from "../../components/layout/GuestNav";
+import AdminNav from "../../components/layout/AdminNav";
+import UserNav from "../../components/layout/UserNav";
 
 const Navbar = ({ isUserAuthenticated, isAdminAuthenticated, logout }) => {
   return (
-    <nav className="navbar bg-dark">
-      <h1>
-        <Link to="/">
-          <i className="fas fa-code" /> NeoBus
-        </Link>
-      </h1>
+   
       <Fragment>
         {isAdminAuthenticated ? (
-          <AdminNavbar logout={logout} />
+          <AdminNav logout={logout} />
         ) : isUserAuthenticated ? (
-          <UserNavbar logout={logout} />
+          <UserNav logout={logout} />
         ) : (
-          <GuestNavbar />
+          <GuestNav />
         )}
       </Fragment>
-    </nav>
+    
   );
 };
 

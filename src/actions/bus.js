@@ -91,6 +91,7 @@ export const getBusById = (bus, date) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    console.log(err);
     const errors = err.response.data.errors;
 
     if (errors) {

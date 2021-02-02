@@ -9,11 +9,11 @@ const BusLoader = ({ formData, onChange, onSubmit }) => {
   }
   return (
     <Fragment>
-      <section className="new-bus">
+      <section className="new-bus one-edge-shadow">
         <h1 className="large text-primary">Find Your Perfect Bus</h1>
 
-        <form className="form" onSubmit={onSubmit}>
-          <div className="form-group">
+        <form className="form1" onSubmit={onSubmit}>
+          <div className="form1-group">
             <input
               type="text"
               placeholder="Origin"
@@ -22,7 +22,7 @@ const BusLoader = ({ formData, onChange, onSubmit }) => {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
+          <div className="form1-group">
             <input
               type="text"
               placeholder="Destination"
@@ -31,7 +31,7 @@ const BusLoader = ({ formData, onChange, onSubmit }) => {
               onChange={onChange}
             />
           </div>
-          <div className="form-group">
+          <div className="form1-group">
             <input
               type="date"
               placeholder="Date"
@@ -41,7 +41,7 @@ const BusLoader = ({ formData, onChange, onSubmit }) => {
             />
           </div>
 
-          <input type="submit" className="btn btn-primary" value="Find Buses" />
+          <input type="submit" className="btn btn-login" value="Search" />
         </form>
       </section>
     </Fragment>

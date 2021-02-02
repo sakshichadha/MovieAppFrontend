@@ -1,12 +1,32 @@
 import React, { Fragment } from "react";
+
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 const UserInfoItem = ({ ticket }) => {
   return (
     <Fragment>
-      <div className="login">
-        <h2>Name:{ticket.name}</h2>
-        <h2>Phone:{ticket.phone}</h2>
-        <h2>Email:{ticket.email}</h2>
-        <h2>Seat:{ticket.seat}</h2>
+
+    <div className="userinfo">
+      <Grid item xs={12} sm={6}>
+        <Typography gutterBottom variant="h7" component="h2" gutterBottom>
+          Name:{ticket.name}
+        </Typography>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <Typography variant="h6" gutterBottom>
+          Phone:{ticket.phone}
+        </Typography>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <Typography variant="h6" gutterBottom>
+          Email:{ticket.email}
+        </Typography>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <Typography variant="h6" gutterBottom>
+          Seat:{ticket.seat}
+        </Typography>
+      </Grid>
       </div>
     </Fragment>
   );

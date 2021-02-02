@@ -2,7 +2,9 @@ import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { loginAdmin } from "../../actions/auth";
-import LoginAdmin from "../../components/auth/LoginAdmin";
+
+import { Redirect } from "react-router-dom";
+import Login from "../../components/auth/Login";
 const AdminLogin = ({ loginAdmin, isAdminAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: "",
@@ -18,14 +20,17 @@ const AdminLogin = ({ loginAdmin, isAdminAuthenticated }) => {
     e.preventDefault();
     loginAdmin(email, password);
   };
+  if (isAdminAuthenticated) {
+    return <Redirect to="/adminDashboard" />;
+  }
   return (
     <Fragment>
-      <LoginAdmin
+      <Login
         onChange={onChange}
         onSubmit={onSubmit}
-        isAdminAuthenticated={isAdminAuthenticated}
         email={email}
         password={password}
+        user="Admin"
       />
     </Fragment>
   );

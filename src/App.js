@@ -16,14 +16,13 @@ import AdminDashboard from "./containers/dashboard/AdminDashboard";
 import GetBuses from "./containers/bus/GetBuses";
 import DisplayBuses from "./containers/bus/DisplayBuses";
 import MyTicket from "./containers/ticket/MyTicket";
-import BookTicket from "./containers/ticket/BookTicket";
+import Book from "./containers/ticket/Book";
 import MyBuses from "./containers/bus/MyBuses";
 import UserInfo from "./containers/ticket/UserInfo";
 import Landing from "./containers/layout/Landing";
 import Navbar from "./containers/layout/Navbar";
 import AddBus from "./containers/bus/AddBus";
 import "./App.css";
-
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -49,19 +48,20 @@ const App = () => {
                 component={UserDashboard}
               />
               <UserPrivateRoute exact path="/findBuses" component={GetBuses} />
-              <AdminPrivateRoute exact path="/myBuses" component={MyBuses} />
 
-              <UserPrivateRoute
+              {/* <UserPrivateRoute
                 exact
-                path="/bookTicket"
-                component={BookTicket}
-              />
+                path="/bookTickets"
+                component={BookTickets}
+              /> */}
+              <UserPrivateRoute exact path="/book" component={Book} />
               <UserPrivateRoute exact path="/myTickets" component={MyTicket} />
               <CommonPrivateRoute
                 exact
                 path="/queryResults"
                 component={DisplayBuses}
               />
+              <AdminPrivateRoute exact path="/myBuses" component={MyBuses} />
               <AdminPrivateRoute
                 exact
                 path="/adminDashboard"
