@@ -9,7 +9,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
 import Button from "@material-ui/core/Button";
-import formatDate from "../../utils/formatDate"
+import formatDate from "../../utils/formatDate";
 import Avatar from "@material-ui/core/Avatar";
 const useStyles = makeStyles((theme) => ({
   icon: {},
@@ -60,7 +60,7 @@ export default function myTickets({ tickets, cancelTicket }) {
                     {ticket.origin} to {ticket.destination}
                   </Typography>
                   <Typography gutterBottom variant="h7" component="h2">
-                    {formatDate(ticket.date)} 
+                    {formatDate(ticket.date)}
                   </Typography>
                   <Typography>Start Time: {ticket.startTime}</Typography>
                   <Typography>End Time: {ticket.endTime}</Typography>

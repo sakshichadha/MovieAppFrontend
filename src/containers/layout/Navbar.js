@@ -8,17 +8,15 @@ import UserNav from "../../components/layout/UserNav";
 
 const Navbar = ({ isUserAuthenticated, isAdminAuthenticated, logout }) => {
   return (
-   
-      <Fragment>
-        {isAdminAuthenticated ? (
-          <AdminNav logout={logout} />
-        ) : isUserAuthenticated ? (
-          <UserNav logout={logout} />
-        ) : (
-          <GuestNav />
-        )}
-      </Fragment>
-    
+    <Fragment>
+      {isAdminAuthenticated ? (
+        <AdminNav logout={logout} />
+      ) : isUserAuthenticated ? (
+        <UserNav logout={logout} />
+      ) : (
+        <GuestNav />
+      )}
+    </Fragment>
   );
 };
 

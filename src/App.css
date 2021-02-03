@@ -600,7 +600,7 @@ Profiles Page */
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-.userinfo{
+.userinfo {
   margin: 70px;
   text-align: left;
   font-size: 20px;
@@ -825,7 +825,6 @@ th {
 }
 
 .selected {
-
   background-color: rgb(255, 157, 0);
   color: rgb(0, 0, 0);
   border: 2px solid orange;

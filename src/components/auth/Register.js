@@ -14,7 +14,6 @@ import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-
     padding: 5,
     background: "white",
     borderRadius: 10,
@@ -49,107 +48,101 @@ export default function Register({ formData, onChange, onSubmit, user }) {
   const { name, email, password, password2 } = formData;
   return (
     <div className={classes.root}>
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          {user} Sign up
-        </Typography>
-        <form className={classes.form} noValidate onSubmit={onSubmit}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="fname"
-                name="name"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="Name"
-                autoFocus
-                onChange={onChange}
-                value={name}
-              />
-            </Grid>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            {user} Sign up
+          </Typography>
+          <form className={classes.form} noValidate onSubmit={onSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="fname"
+                  name="name"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="Name"
+                  autoFocus
+                  onChange={onChange}
+                  value={name}
+                />
+              </Grid>
 
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                value={email}
-                onChange={onChange}
-              />
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={onChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={onChange}
+                  minLength="6"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password2"
+                  label="Confirm Password"
+                  type="password"
+                  id="password2"
+                  onChange={onChange}
+                  value={password2}
+                  minLength="6"
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                value={password}
-                onChange={onChange}
-                minLength="6"
-              />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              value="Register"
+            >
+              Sign Up
+            </Button>
+            <Grid container justify="flex-end">
+              <Grid item>
+                {user == "Admin" ? (
+                  <Link href="/loginAdmin" variant="body2">
+                    {"Already have an account? Sign In"}
+                  </Link>
+                ) : (
+                  <Link href="/loginUser" variant="body2">
+                    {"Already have an account? Sign In"}
+                  </Link>
+                )}
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password2"
-                label="Confirm Password"
-                type="password"
-                id="password2"
-                onChange={onChange}
-                value={password2}
-                minLength="6"
-              />
-            </Grid>
-            {/* <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid> */}
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            value="Register"
-          >
-            Sign Up
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              {user == "Admin" ? (
-                <Link href="/loginAdmin" variant="body2">
-                  {"Already have an account? Sign In"}
-                </Link>
-              ) : (
-                <Link href="/loginUser" variant="body2">
-                  {"Already have an account? Sign In"}
-                </Link>
-              )}
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}></Box>
-    </Container>
+          </form>
+        </div>
+        <Box mt={5}></Box>
+      </Container>
     </div>
   );
 }

@@ -14,10 +14,9 @@ const MyBuses = ({ getMyBuses }) => {
 
   const { origin, destination, date } = formData;
 
- 
-  const onChange = e => setFormData({...formData, [e.target.name]:e.target.value})
-const onDateChange = date => setFormData({...formData, date: date})
-
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onDateChange = (date) => setFormData({ ...formData, date: date });
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +31,12 @@ const onDateChange = date => setFormData({...formData, date: date})
   }
   return (
     <Fragment>
-      <SearchBus onChange={onChange} onSubmit={onSubmit} formData={formData} onDateChange={onDateChange} />
+      <SearchBus
+        onChange={onChange}
+        onSubmit={onSubmit}
+        formData={formData}
+        onDateChange={onDateChange}
+      />
     </Fragment>
   );
 };

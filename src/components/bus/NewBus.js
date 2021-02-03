@@ -10,12 +10,7 @@ import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-// import {
-//   MuiPickersUtilsProvider,
-//   KeyboardDatePicker,
-// } from "@material-ui/pickers";
 
-// import DateFnsUtils from "@date-io/date-fns";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 5,
@@ -115,23 +110,6 @@ export default function SearchBus({ formData, onChange, onSubmit }) {
                   onChange={onChange}
                 />
               </Grid>
-
-              {/* <Grid item xs={12}>
-              <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <KeyboardDatePicker
-                  name="date"
-                  margin="normal"
-                  id="date-picker-inline"
-                  label="Date"
-                  format="MM/dd/yyyy"
-                  KeyboardButtonProps={{
-                    "aria-label": "change date",
-                  }}
-                  value={date}
-                  onChange={onDateChange}
-                />
-              </MuiPickersUtilsProvider>
-            </Grid> */}
             </Grid>
             <Button
               type="submit"

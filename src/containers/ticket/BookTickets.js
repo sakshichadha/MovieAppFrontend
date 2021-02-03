@@ -1,4 +1,4 @@
-import React, { useState,Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { connect } from "react-redux";
 import { bookBus } from "../../actions/ticket";
 import PropTypes from "prop-types";
@@ -26,24 +26,22 @@ const BookTickets = ({ bookBus, bus, date, seat }) => {
   if (formData.redirect) {
     return <Redirect to="/userDashboard" />;
   }
-    
+
   return (
     <Fragment>
-      
       <div className="">
-    <DetailForm
-      formData={formData}
-      onChange={onChange}
-      onSubmit={onSubmit}
-      bus={bus}
-      date={date}
-      seat={seat}
-    />
-    </div>
+        <DetailForm
+          formData={formData}
+          onChange={onChange}
+          onSubmit={onSubmit}
+          bus={bus}
+          date={date}
+          seat={seat}
+        />
+      </div>
     </Fragment>
   );
-}
-
+};
 
 BookTickets.propTypes = {
   bookBus: PropTypes.func.isRequired,

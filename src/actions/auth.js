@@ -69,7 +69,7 @@ export const registerUser = (formData) => async (dispatch) => {
     });
     dispatch(loadUser());
   } catch (err) {
-    console.log(err)
+    console.log(err);
     const errors = err.response.data.errors;
 
     if (errors) {
@@ -92,9 +92,9 @@ export const registerAdmin = (formData) => async (dispatch) => {
     });
     dispatch(loadAdmin());
   } catch (err) {
-    console.log(err)
+    console.log(err);
     const errors = err.response.data.errors;
-    
+
     if (errors) {
       errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
     }

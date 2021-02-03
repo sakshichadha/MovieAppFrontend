@@ -1,14 +1,12 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-
 import GetBuses from "../bus/GetBuses";
+
 const UserDashboard = () => {
   return (
     <Fragment>
-      <div class="">
-        <GetBuses />
-      </div>
+      <GetBuses />
     </Fragment>
   );
 };

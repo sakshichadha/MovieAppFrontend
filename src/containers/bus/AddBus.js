@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addBus } from "../../actions/bus";
 import PropTypes from "prop-types";
 import NewBus from "../../components/bus/NewBus";
+
 const AddBus = ({ addBus }) => {
   const [formData, setFormData] = useState({
     origin: "",

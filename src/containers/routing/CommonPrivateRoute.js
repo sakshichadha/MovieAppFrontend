@@ -5,18 +5,19 @@ import { connect } from "react-redux";
 const CommonPrivateRoute = ({
   component: Component,
   authAdmin: { isAdminAuthenticated, loading },
-  authUser:{isUserAuthenticated},
-loadingUser,
+  authUser: { isUserAuthenticated },
+  loadingUser,
   ...rest
 }) => (
   <Route
     {...rest}
     render={(props) =>
-        (!isUserAuthenticated || !isAdminAuthenticated) && (!loading || !loadingUser) ? (
-            <Fragment>
-            <h1></h1>
-            <Component {...props} />
-          </Fragment>
+      (!isUserAuthenticated || !isAdminAuthenticated) &&
+      (!loading || !loadingUser) ? (
+        <Fragment>
+          <h1></h1>
+          <Component {...props} />
+        </Fragment>
       ) : (
         <Redirect to="/" />
       )
@@ -26,13 +27,13 @@ loadingUser,
 
 CommonPrivateRoute.propTypes = {
   authAdmin: PropTypes.object.isRequired,
-  authUser:PropTypes.object.isRequired,
-  loadingUser:PropTypes.bool.isRequired,
+  authUser: PropTypes.object.isRequired,
+  loadingUser: PropTypes.bool.isRequired,
 };
 const mapStateToProps = (state) => ({
   authAdmin: state.authAdmin,
-  authUser:state.authUser,
-  loadingUser:state.authUser.loading
+  authUser: state.authUser,
+  loadingUser: state.authUser.loading,
 });
 
 export default connect(mapStateToProps)(CommonPrivateRoute);

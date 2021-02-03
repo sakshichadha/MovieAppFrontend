@@ -29,7 +29,6 @@ const Book = ({ bookBus, bus, date, seat }) => {
 
   return (
     <Fragment>
-      
       <DetailForm
         formData={formData}
         onChange={onChange}

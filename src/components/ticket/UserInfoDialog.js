@@ -78,8 +78,7 @@ export default function CustomizedDialogs() {
         </DialogTitle>
         <UserInfo />
         <DialogContent dividers>
-          <Typography gutterBottom>
-          </Typography>
+          <Typography gutterBottom></Typography>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">

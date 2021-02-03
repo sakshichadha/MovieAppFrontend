@@ -146,12 +146,6 @@ const AdminSeatMap = ({
         >
           Cancel all Bookings
         </Button>
-        {/* <button
-          onClick={() => cancelTickets(date, bus)}
-          className="btn btn-danger"
-        >
-          Cancel All Bookings
-        </button> */}
       </div>
     </Fragment>
   );
