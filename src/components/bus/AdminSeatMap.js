@@ -1,43 +1,14 @@
 import React, { Fragment } from "react";
-
 import green from "@material-ui/core/colors/green";
 import grey from "@material-ui/core/colors/grey";
-
 import Button from "@material-ui/core/Button";
 import red from "@material-ui/core/colors/red";
-
-// import blue from "@material-ui/core/colors/blue";
 import EventSeatIcon from "@material-ui/icons/EventSeat";
 import Badge from "@material-ui/core/Badge";
-// import Grid from "@material-ui/core/Grid";
 import UserInfoDialog from "../ticket/UserInfoDialog";
-
 import { makeStyles } from "@material-ui/core/styles";
+
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   padding: 5,
-  //   background: "white",
-  //   borderRadius: 10,
-  //   border: 0,
-  //   height: 600,
-  //   width: 500,
-  //   boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-  //   margin: "10% 40%",
-  // },
-  // paper: {
-  //   marginTop: theme.spacing(8),
-  //   display: "flex",
-  //   flexDirection: "column",
-  //   alignItems: "center",
-  // },
-  // avatar: {
-  //   margin: theme.spacing(1),
-  //   backgroundColor: theme.palette.secondary.main,
-  // },
-  // form: {
-  //   width: "100%", // Fix IE 11 issue.
-  //   marginTop: theme.spacing(3),
-  // },
   userinfo: {
     margin: theme.spacing(3, -1, 2),
     backgroundColor: green[500],

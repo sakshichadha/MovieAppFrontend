@@ -20,9 +20,7 @@ const MyBuses = ({ getMyBuses }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
     await getMyBuses({ origin, destination, date });
-
     setFormData({ ...formData, redirect: true });
   };
 

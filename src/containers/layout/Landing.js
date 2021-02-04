@@ -7,8 +7,7 @@ import LandingItem from "../../components/layout/LandingItem";
 const Landing = ({ isUserAuthenticated, isAdminAuthenticated }) => {
   if (isUserAuthenticated) {
     return <Redirect to="/userDashboard" />;
-  }
-  if (isAdminAuthenticated) {
+  } else if (isAdminAuthenticated) {
     return <Redirect to="/adminDashboard" />;
   }
 

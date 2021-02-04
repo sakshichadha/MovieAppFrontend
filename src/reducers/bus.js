@@ -6,7 +6,7 @@ import {
   SET_BUS,
   SET_SEAT,
   GET_MY_FLEET,
-  CANCEL_ALL_TICKETS
+  CANCEL_ALL_TICKETS,
 } from "../actions/types";
 
 const initialState = {
@@ -14,8 +14,8 @@ const initialState = {
   loading: true,
   date: "",
   bus: "",
-  seat:"",
-  seats:""
+  seat: "",
+  seats: "",
 };
 
 function busReducer(state = initialState, action) {
@@ -25,13 +25,13 @@ function busReducer(state = initialState, action) {
     case SET_SEAT:
       return {
         ...state,
-        seat:payload
-      }
+        seat: payload,
+      };
     case SET_BUS:
-      return{
+      return {
         ...state,
-        bus:payload
-      }
+        bus: payload,
+      };
     case SET_DATE:
       return {
         ...state,
@@ -48,20 +48,20 @@ function busReducer(state = initialState, action) {
     case GET_BUSES:
       return {
         ...state,
-        seats:[],
+        seats: [],
         buses: payload,
         loading: false,
       };
     case CANCEL_ALL_TICKETS:
       return {
         ...state,
-        seats:  Array(40).fill(1),
+        seats: Array(40).fill(1),
         loading: false,
       };
 
     case BUS_ERROR:
       return {
-        seats:[],
+        seats: [],
         ...state,
         buses: [],
       };

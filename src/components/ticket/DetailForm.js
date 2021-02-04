@@ -51,7 +51,7 @@ export default function DetailForm({
   const classes = useStyles();
   const { name, email, phone } = formData;
   const { origin, destination, startTime, endTime } = bus;
-  
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

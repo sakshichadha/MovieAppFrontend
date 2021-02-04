@@ -16,13 +16,11 @@ const UserPrivateRoute = ({
         <Spinner />
       ) : isUserAuthenticated ? (
         <Fragment>
-          <h1></h1>
           <Component {...props} />
         </Fragment>
       ) : (
         <Fragment>
           <Redirect to="/loginUser" />
-          <h1>hii</h1>
         </Fragment>
       )
     }

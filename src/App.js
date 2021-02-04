@@ -1,10 +1,10 @@
 import { React, Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store";
 import UserPrivateRoute from "./containers/routing/UserPrivateRoute";
 import AdminPrivateRoute from "./containers/routing/AdminPrivateRoute";
 import CommonPrivateRoute from "./containers/routing/CommonPrivateRoute";
-import { Provider } from "react-redux";
-import store from "./store";
 import { loadAdmin, loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 import AdminRegister from "./containers/auth/AdminRegister";
@@ -23,6 +23,7 @@ import Landing from "./containers/layout/Landing";
 import Navbar from "./containers/layout/Navbar";
 import AddBus from "./containers/bus/AddBus";
 import "./App.css";
+
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -48,12 +49,6 @@ const App = () => {
                 component={UserDashboard}
               />
               <UserPrivateRoute exact path="/findBuses" component={GetBuses} />
-
-              {/* <UserPrivateRoute
-                exact
-                path="/bookTickets"
-                component={BookTickets}
-              /> */}
               <UserPrivateRoute exact path="/book" component={Book} />
               <UserPrivateRoute exact path="/myTickets" component={MyTicket} />
               <CommonPrivateRoute

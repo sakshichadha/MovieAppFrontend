@@ -15,7 +15,6 @@ const CommonPrivateRoute = ({
       (!isUserAuthenticated || !isAdminAuthenticated) &&
       (!loading || !loadingUser) ? (
         <Fragment>
-          <h1></h1>
           <Component {...props} />
         </Fragment>
       ) : (

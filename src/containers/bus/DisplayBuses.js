@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import BusItem from "./BusItem";
-import Bus from "../../components/bus/Bus";
+import BusPage from "../../components/bus/BusPage";
 
 const DisplayBuses = ({
   bus,
@@ -10,17 +10,10 @@ const DisplayBuses = ({
   isUserAuthenticated,
   isAdminAuthenticated,
 }) => {
-  if (isUserAuthenticated) {
+  if (isUserAuthenticated || isAdminAuthenticated) {
     return (
       <Fragment>
-        <Bus bus={bus} date={date} BusItem={BusItem} />
-      </Fragment>
-    );
-  }
-  if (isAdminAuthenticated) {
-    return (
-      <Fragment>
-        <Bus bus={bus} date={date} BusItem={BusItem} />
+        <BusPage bus={bus} date={date} BusItem={BusItem} />
       </Fragment>
     );
   }
