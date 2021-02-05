@@ -693,7 +693,6 @@ th {
   margin-bottom: 0.5rem;
 }
 
-/* Mobile Styles */
 @media (max-width: 700px) {
   .container {
     margin-top: 8rem;
@@ -703,7 +702,6 @@ th {
     display: none;
   }
 
-  /* Text Styles */
   .x-large {
     font-size: 3rem;
   }
@@ -716,7 +714,6 @@ th {
     font-size: 2rem;
   }
 
-  /* Navbar */
   .navbar {
     display: block;
     text-align: center;
@@ -735,7 +732,6 @@ th {
     display: none;
   }
 
-  /* Profiles Page */
   .profile {
     grid-template-columns: 1fr;
     text-align: center;
@@ -744,8 +740,6 @@ th {
   .profile ul {
     display: none;
   }
-
-  /* Profile Page */
 
   .profile-top img,
   .profile img {
@@ -791,20 +785,12 @@ th {
   border: 2px solid orange;
   padding-left: 20px;
 }
-/* (
-              <td
-                className={seat === null ? 'available' : 'reserved'}
-                onClick={seat === null ? () => book({ seatNumber }) : {}}
-              >
-                {seatNumber}{' '}
-              </td>
-            ) */
+
 .grid tr td {
   width: 100px;
   height: 50px;
   border-radius: 5px;
   padding-bottom: 5px;
-  /* border: 2px solid orange; */
   text-align: center;
   float: left;
   margin: 5px;
@@ -820,7 +806,6 @@ th {
 }
 
 .available {
-  /* background: rgb(0, 255, 64); */
   color: rgb(0, 0, 0);
 }
 
