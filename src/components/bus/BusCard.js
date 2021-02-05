@@ -44,7 +44,9 @@ const BusCard = ({ getBusById, bus, date }) => {
   {
     const classes = useStyles();
 
-    return (
+    return bus == null ? (
+      <Fragment>Loading</Fragment>
+    ) : (
       <Fragment>
         <Grid item key={bus._id} xs={12} sm={6} md={4}>
           <Card className={classes.card}>
