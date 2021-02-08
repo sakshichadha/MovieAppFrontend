@@ -436,7 +436,7 @@ button {
   width: 50vh;
   opacity: 1;
 }
-/* Landing Page */
+
 .landing {
   position: relative;
   /* background: url("./static/landing.jpg") no-repeat center center/cover; */
@@ -475,8 +475,7 @@ button {
 .green {
   margin-top: 5%;
 }
-/*
-Profiles Page */
+
 .profile {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
@@ -487,7 +486,7 @@ Profiles Page */
   margin-bottom: 1rem;
 }
 
-/* Profile Page */
+
 .profile-grid {
   display: grid;
   grid-template-areas:
@@ -607,59 +606,7 @@ Profiles Page */
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-/* 
-.grid-container {
-  display: grid;
-  height: 100px;
-  align-content: space-evenly;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 10px;
-  background-color: #909294;
-  padding: 10px;
-}
 
-.grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding: 2px 0;
-  font-size: 10px;
-} */
-
-/* table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 8px;
-  font-size: 20px;
-  font-weight: 200;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-  text-align: center;
-  padding: 50px;
-}
-
-tr:nth-child(odd) {
-  background-color: #b8b8b8;
-  text-align: center;
-  padding: 50px;
-}
-/* 
-tr:hover {background-color:#02b7ee;} */
-
-/* tr {
-  height: 100px;
-}
-th {
-  background-color: #4caf50;
-  color: white;
-} */
 */ .post {
   display: grid;
   grid-template-columns: auto auto auto auto;

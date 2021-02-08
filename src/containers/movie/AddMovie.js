@@ -1,28 +1,26 @@
 import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
-import { addBus } from "../../actions/bus";
+import { addMovie } from "../../actions/movie";
 import PropTypes from "prop-types";
-import NewBus from "../../components/bus/NewBus";
+import NewMovie from "../../components/movie/NewMovie";
 
-const AddBus = ({ addBus }) => {
+const AddMovie = ({ addMovie }) => {
   const [formData, setFormData] = useState({
-    origin: "",
-    destination: "",
+    Name:"",
     startTime: "",
     endTime: "",
   });
 
-  const { origin, destination, startTime, endTime } = formData;
+  const {Name,startTime, endTime } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    addBus({ origin, destination, startTime, endTime });
+    addMovie({Name,startTime, endTime });
     setFormData({
-      origin: "",
-      destination: "",
+      Name:"",
       startTime: "",
       endTime: "",
     });
@@ -30,13 +28,13 @@ const AddBus = ({ addBus }) => {
 
   return (
     <Fragment>
-      <NewBus onChange={onChange} onSubmit={onSubmit} formData={formData} />
+      <NewMovie onChange={onChange} onSubmit={onSubmit} formData={formData} />
     </Fragment>
   );
 };
 
-AddBus.propTypes = {
-  addBus: PropTypes.func.isRequired,
+AddMovie.propTypes = {
+  addMovie: PropTypes.func.isRequired,
   isUserAuthenticated: PropTypes.bool,
 };
 
@@ -44,4 +42,4 @@ const mapStateToProps = (state) => ({
   isAdminAuthenticated: state.authAdmin.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { addBus })(AddBus);
+export default connect(mapStateToProps, { addMovie })(AddMovie);

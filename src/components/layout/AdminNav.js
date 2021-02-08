@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -103,12 +102,12 @@ export default function UsrNavbar({ logout }) {
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Link to="/myBuses">
+            <Link to="/myMovies">
               <IconButton color="inherit">
                 <SearchIcon />
               </IconButton>
             </Link>
-            <Link to="/addBus">
+            <Link to="/addMovie">
               <IconButton color="inherit">
                 <AddIcon />
               </IconButton>

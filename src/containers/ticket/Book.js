@@ -1,10 +1,10 @@
 import React, { useState, Fragment } from "react";
 import { connect } from "react-redux";
-import { bookBus } from "../../actions/ticket";
+import { bookMovie } from "../../actions/ticket";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 import DetailForm from "../../components/ticket/DetailForm";
-const Book = ({ bookBus, bus, date, seat }) => {
+const Book = ({ bookMovie, movie, date, seat,movie_name }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,13 +13,13 @@ const Book = ({ bookBus, bus, date, seat }) => {
   });
 
   const { name, email, phone } = formData;
-  const { _id } = bus;
+  const { _id } = movie;
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await bookBus(_id, name, email, phone, seat, date);
+    await bookMovie(_id, name, email, phone, seat, date);
     setFormData({ ...formData, redirect: true });
   };
 
@@ -33,7 +33,7 @@ const Book = ({ bookBus, bus, date, seat }) => {
         formData={formData}
         onChange={onChange}
         onSubmit={onSubmit}
-        bus={bus}
+        movie_name={movie_name}
         date={date}
         seat={seat}
       />
@@ -42,16 +42,18 @@ const Book = ({ bookBus, bus, date, seat }) => {
 };
 
 Book.propTypes = {
-  bookBus: PropTypes.func.isRequired,
-  bus: PropTypes.object.isRequired,
+  bookMovie: PropTypes.func.isRequired,
+  movie: PropTypes.object.isRequired,
   date: PropTypes.string.isRequired,
   seat: PropTypes.number.isRequired,
+  movie_name:PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  bus: state.bus.bus,
-  date: state.bus.date,
-  seat: state.bus.seat,
+  movie: state.movie.movie,
+  date: state.movie.date,
+  seat: state.movie.seat,
+  movie_name:state.movie.name,
 });
 
-export default connect(mapStateToProps, { bookBus })(Book);
+export default connect(mapStateToProps, { bookMovie })(Book);

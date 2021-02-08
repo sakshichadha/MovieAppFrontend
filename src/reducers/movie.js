@@ -1,24 +1,24 @@
 import {
-  GET_BUSES,
-  BUS_ERROR,
+  GET_MOVIES,
+  MOVIE_ERROR,
   SET_DATE,
-  GET_BUS_BY_ID,
-  SET_BUS,
+  GET_MOVIE_BY_ID,
+  SET_MOVIE,
   SET_SEAT,
   GET_MY_FLEET,
   CANCEL_ALL_TICKETS,
 } from "../actions/types";
 
 const initialState = {
-  buses: [],
+  movies: [],
   loading: true,
   date: "",
-  bus: "",
+  movie: "",
   seat: "",
   seats: "",
 };
 
-function busReducer(state = initialState, action) {
+function movieReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -27,17 +27,17 @@ function busReducer(state = initialState, action) {
         ...state,
         seat: payload,
       };
-    case SET_BUS:
+    case SET_MOVIE:
       return {
         ...state,
-        bus: payload,
+        movie: payload,
       };
     case SET_DATE:
       return {
         ...state,
         date: payload,
       };
-    case GET_BUS_BY_ID:
+    case GET_MOVIE_BY_ID:
       return {
         ...state,
         seats: payload,
@@ -45,11 +45,11 @@ function busReducer(state = initialState, action) {
       };
 
     case GET_MY_FLEET:
-    case GET_BUSES:
+    case GET_MOVIES:
       return {
         ...state,
         seats: [],
-        buses: payload,
+        movies: payload,
         loading: false,
       };
     case CANCEL_ALL_TICKETS:
@@ -59,15 +59,15 @@ function busReducer(state = initialState, action) {
         loading: false,
       };
 
-    case BUS_ERROR:
+    case MOVIE_ERROR:
       return {
         seats: [],
         ...state,
-        buses: [],
+        movies: [],
       };
     default:
       return state;
   }
 }
 
-export default busReducer;
+export default movieReducer;

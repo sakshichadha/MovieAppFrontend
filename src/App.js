@@ -13,15 +13,15 @@ import UserLogin from "./containers/auth/UserLogin";
 import AdminLogin from "./containers/auth/AdminLogin";
 import UserDashboard from "./containers/dashboard/UserDashboard";
 import AdminDashboard from "./containers/dashboard/AdminDashboard";
-import GetBuses from "./containers/bus/GetBuses";
-import DisplayBuses from "./containers/bus/DisplayBuses";
+import GetMovies from "./containers/movie/GetMovies";
+import DisplayMovies from "./containers/movie/DisplayMovies";
 import MyTicket from "./containers/ticket/MyTicket";
 import Book from "./containers/ticket/Book";
-import MyBuses from "./containers/bus/MyBuses";
+import MyMovies from "./containers/movie/MyMovies";
 import UserInfo from "./containers/ticket/UserInfo";
 import Landing from "./containers/layout/Landing";
 import Navbar from "./containers/layout/Navbar";
-import AddBus from "./containers/bus/AddBus";
+import AddMovie from "./containers/movie/AddMovie";
 import "./App.css";
 
 if (localStorage.token) {
@@ -48,15 +48,19 @@ const App = () => {
                 path="/userDashboard"
                 component={UserDashboard}
               />
-              <UserPrivateRoute exact path="/findBuses" component={GetBuses} />
+              <UserPrivateRoute
+                exact
+                path="/findMovies"
+                component={GetMovies}
+              />
               <UserPrivateRoute exact path="/book" component={Book} />
               <UserPrivateRoute exact path="/myTickets" component={MyTicket} />
               <CommonPrivateRoute
                 exact
                 path="/queryResults"
-                component={DisplayBuses}
+                component={DisplayMovies}
               />
-              <AdminPrivateRoute exact path="/myBuses" component={MyBuses} />
+              <AdminPrivateRoute exact path="/myMovies" component={MyMovies} />
               <AdminPrivateRoute
                 exact
                 path="/adminDashboard"
@@ -67,7 +71,7 @@ const App = () => {
                 path="/ticketInfo"
                 component={UserInfo}
               />
-              <AdminPrivateRoute exact path="/addBus" component={AddBus} />
+              <AdminPrivateRoute exact path="/addMovie" component={AddMovie} />
               <Route exact path="/registerAdmin" component={AdminRegister} />
               <Route exact path="/loginAdmin" component={AdminLogin} />
 

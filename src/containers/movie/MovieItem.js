@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { setSeat } from "../../actions/bus";
+import { setSeat } from "../../actions/movie";
 import { cancelTickets } from "../../actions/ticket";
-import UserSeatMap from "../../components/bus/UserSeatMap";
-import AdminSeatMap from "../../components/bus/AdminSeatMap";
-const BusItem = ({
+import UserSeatMap from "../../components/movie/UserSeatMap";
+import AdminSeatMap from "../../components/movie/AdminSeatMap";
+const MovieItem = ({
   date,
-  bus,
+  movie,
   seats,
   setSeat,
   isUserAuthenticated,
@@ -30,7 +30,7 @@ const BusItem = ({
       <Fragment>
         <AdminSeatMap
           date={date}
-          bus={bus}
+          movie={movie}
           seats={seats}
           setSeat={setSeat}
           cancelTickets={cancelTickets}
@@ -42,10 +42,10 @@ const BusItem = ({
     return <h1></h1>;
   }
 };
-BusItem.propTypes = {
+MovieItem.propTypes = {
   selectedSeat: PropTypes.number.isRequired,
   seats: PropTypes.array.isRequired,
-  bus: PropTypes.object.isRequired,
+  movie: PropTypes.object.isRequired,
   setSeat: PropTypes.func.isRequired,
   cancelTickets: PropTypes.func.isRequired,
   isUserAuthenticated: PropTypes.bool.isRequired,
@@ -53,12 +53,12 @@ BusItem.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  selectedSeat: state.bus.seat,
-  date: state.bus.date,
-  seats: state.bus.seats,
-  bus: state.bus.bus,
+  selectedSeat: state.movie.seat,
+  date: state.movie.date,
+  seats: state.movie.seats,
+  movie: state.movie.movie,
   isUserAuthenticated: state.authUser.isUserAuthenticated,
   isAdminAuthenticated: state.authAdmin.isAdminAuthenticated,
 });
 
-export default connect(mapStateToProps, { setSeat, cancelTickets })(BusItem);
+export default connect(mapStateToProps, { setSeat, cancelTickets })(MovieItem);

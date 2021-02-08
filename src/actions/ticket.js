@@ -17,7 +17,7 @@ export const myTickets = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     const errors = err.response.data.errors;
 
     if (errors) {
@@ -30,12 +30,12 @@ export const myTickets = () => async (dispatch) => {
   }
 };
 
-export const bookBus = (_id, name, email, phone, seat, date) => async (
+export const bookMovie = (_id, name, email, phone, seat, date) => async (
   dispatch
 ) => {
   try {
     const query = {
-      bus: _id,
+      movie: _id,
       date: date,
       seat: seat,
       email: email,
@@ -61,11 +61,11 @@ export const bookBus = (_id, name, email, phone, seat, date) => async (
   }
 };
 
-export const userInfo = (date, bus, seat) => async (dispatch) => {
+export const userInfo = (date, movie, seat) => async (dispatch) => {
   try {
     const query = {
       date: date,
-      bus: bus._id,
+      movie: movie._id,
       seat: seat,
     };
     const res = await axios.post("api/admin/ticketInfo", query);
@@ -75,11 +75,11 @@ export const userInfo = (date, bus, seat) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
-    const errors = err.response.data.errors;
+    // const errors = err.response.data.errors;
 
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
-    }
+    // if (errors) {
+    //   errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    // }
 
     dispatch({
       type: TICKET_ERROR,
@@ -111,11 +111,11 @@ export const cancelTicket = (id) => async (dispatch) => {
   }
 };
 
-export const cancelTickets = (date, bus) => async (dispatch) => {
+export const cancelTickets = (date, movie) => async (dispatch) => {
   try {
     const query = {
       date: date,
-      bus: bus._id,
+      movie: movie._id,
     };
     const res = await axios.post("api/admin/cancelTickets", query);
 

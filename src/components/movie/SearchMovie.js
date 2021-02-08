@@ -3,7 +3,8 @@ import "date-fns";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
+import TextField from '@material-ui/core/TextField';
+
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import SearchIcon from "@material-ui/icons/Search";
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBus({
+export default function SearchMovie({
   formData,
   onChange,
   onSubmit,
@@ -54,7 +55,7 @@ export default function SearchBus({
 }) {
   const classes = useStyles();
 
-  const { origin, destination, date } = formData;
+  const {Name,date } = formData;
 
   return (
     <div className={classes.root}>
@@ -65,11 +66,11 @@ export default function SearchBus({
             <SearchIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Find Buses
+            Find Movies
           </Typography>
           <form className={classes.form} noValidate onSubmit={onSubmit}>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   autoComplete="fname"
                   name="origin"
@@ -82,17 +83,17 @@ export default function SearchBus({
                   onChange={onChange}
                   value={origin}
                 />
-              </Grid>
+              </Grid> */}
 
               <Grid item xs={12}>
                 <TextField
                   variant="outlined"
                   required
                   fullWidth
-                  id="destination"
-                  label="Destination"
-                  name="destination"
-                  value={destination}
+                  id="Name"
+                  label="Name"
+                  name="Name"
+                  value={Name}
                   onChange={onChange}
                 />
               </Grid>
@@ -122,7 +123,7 @@ export default function SearchBus({
               className={classes.submit}
               value="Find Buses"
             >
-              Find Buses
+              Find Movies
             </Button>
           </form>
         </div>

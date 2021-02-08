@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const AdminSeatMap = ({
   date,
-  bus,
+  movie,
   seats,
   setSeat,
   cancelTickets,
@@ -113,9 +113,9 @@ const AdminSeatMap = ({
           size="small"
           value="Cancel all Bookings"
           className={classes.submit}
-          onClick={() => cancelTickets(date, bus)}
+          onClick={() => cancelTickets(date, movie)}
         >
-          Cancel all Bookings
+          Cancel all the Bookings
         </Button>
       </div>
     </Fragment>

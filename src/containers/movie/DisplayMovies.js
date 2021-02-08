@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import BusItem from "./BusItem";
-import BusPage from "../../components/bus/BusPage";
+import MovieItem from "./MovieItem";
+import MoviePage from "../../components/movie/MoviePage";
 
-const DisplayBuses = ({
-  bus,
+const DisplayMovies = ({
+  movie,
   date,
   isUserAuthenticated,
   isAdminAuthenticated,
@@ -13,21 +13,23 @@ const DisplayBuses = ({
   if (isUserAuthenticated || isAdminAuthenticated) {
     return (
       <Fragment>
-        <BusPage bus={bus} date={date} BusItem={BusItem} />
+        {(movie==null?(<h1>loading</h1>):(
+        <MoviePage movie={movie} date={date} MovieItem={MovieItem} />
+        ))}
       </Fragment>
     );
   }
 };
 
-DisplayBuses.propTypes = {
-  buses: PropTypes.object.isRequired,
+DisplayMovies.propTypes = {
+  movies: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   isUserAuthenticated: state.authUser.isUserAuthenticated,
   isAdminAuthenticated: state.authAdmin.isAdminAuthenticated,
-  bus: state.bus,
-  date: state.bus.date,
+  movie: state.movie,
+  date: state.movie.date,
 });
 
-export default connect(mapStateToProps, {})(DisplayBuses);
+export default connect(mapStateToProps, {})(DisplayMovies);

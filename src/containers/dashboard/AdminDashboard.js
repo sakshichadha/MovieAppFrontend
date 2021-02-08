@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import MyBuses from "../bus/MyBuses";
+import MyMovies from "../movie/MyMovies";
 
 const AdminDashboard = () => {
   return (
     <Fragment>
-      <MyBuses />
+      <MyMovies />
     </Fragment>
   );
 };

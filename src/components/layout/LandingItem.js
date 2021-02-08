@@ -5,8 +5,8 @@ const Landing = () => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large">NeoBus</h1>
-          <p className="lead">Bus Booking made Eazyy</p>
+          <h1 className="x-large">E-movie</h1>
+          <p className="lead">Movie Booking Made Eazyy</p>
           <div className="buttons">
             <Link to="/registerUser" className="btn btn-custom">
               Sign Up

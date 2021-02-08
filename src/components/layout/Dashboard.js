@@ -17,7 +17,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -166,25 +165,18 @@ export default function Dashboard() {
           <Grid container spacing={3}>
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-               
-              </Paper>
+              <Paper className={fixedHeightPaper}></Paper>
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-              
-              </Paper>
+              <Paper className={fixedHeightPaper}></Paper>
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
-              <Paper className={classes.paper}>
-               
-              </Paper>
+              <Paper className={classes.paper}></Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
-          </Box>
+          <Box pt={4}></Box>
         </Container>
       </main>
     </div>

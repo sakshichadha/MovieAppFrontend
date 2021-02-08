@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -41,10 +41,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBus({ formData, onChange, onSubmit }) {
+export default function SearchMovie({ formData, onChange, onSubmit }) {
   const classes = useStyles();
 
-  const { origin, destination, startTime, endTime } = formData;
+  const { Name,startTime, endTime } = formData;
 
   return (
     <div className={classes.root}>
@@ -55,11 +55,11 @@ export default function SearchBus({ formData, onChange, onSubmit }) {
             <AddCircleOutlineIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Add New Bus to your Fleet{" "}
+            Add New Movie to your Fleet{" "}
           </Typography>
           <form className={classes.form} noValidate onSubmit={onSubmit}>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   autoComplete="fname"
                   name="origin"
@@ -72,7 +72,7 @@ export default function SearchBus({ formData, onChange, onSubmit }) {
                   onChange={onChange}
                   value={origin}
                 />
-              </Grid>
+              </Grid> */}
 
               <Grid item xs={12}>
                 <TextField
@@ -80,9 +80,9 @@ export default function SearchBus({ formData, onChange, onSubmit }) {
                   required
                   fullWidth
                   id="destination"
-                  label="Destination"
-                  name="destination"
-                  value={destination}
+                  label="Name"
+                  name="Name"
+                  value={Name}
                   onChange={onChange}
                 />
               </Grid>
@@ -119,7 +119,7 @@ export default function SearchBus({ formData, onChange, onSubmit }) {
               className={classes.submit}
               value="Add Bus"
             >
-              Add Bus
+              Add Movie
             </Button>
           </form>
         </div>

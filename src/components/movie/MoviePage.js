@@ -3,8 +3,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import BusCard from "./BusCard";
-import BusItem from "../../containers/bus/BusItem";
+import MovieCard from "./MovieCard";
+import MovieItem from "../../containers/movie/MovieItem";
 import { Typography } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   icon: {},
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Bus({ bus, date }) {
+export default function Movie({movie, date }) {
   const classes = useStyles();
 
   return (
@@ -43,19 +43,19 @@ export default function Bus({ bus, date }) {
         <div class="flex-child magenta">
           <Container className={classes.cardGrid} maxWidth="md">
             <Typography component="h1" variant="h3">
-              Available Buses
+              Available Movies
             </Typography>
             <br />
             <Grid container spacing={4}>
-              {bus.buses.map((bus) => (
-                <BusCard key={bus._id} bus={bus} date={date} />
+              {movie.movies.map((movie) => (
+                <MovieCard key={movie._id} movie={movie} date={date} />
               ))}
             </Grid>
           </Container>
         </div>
 
         <div class="flex-child green">
-          <BusItem />
+          <MovieItem />
         </div>
       </div>
       <main></main>

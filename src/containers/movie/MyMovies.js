@@ -1,19 +1,18 @@
 import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
-import { getBuses } from "../../actions/bus";
-import PropTypes from "prop-types";
-
+import { getMyMovies } from "../../actions/movie";
 import { Redirect } from "react-router-dom";
-import SearchBus from "../../components/bus/SearchBus";
-const GetBuses = ({ getBuses }) => {
+import PropTypes from "prop-types";
+import SearchMovie from "../../components/movie/SearchMovie";
+const MyMovies = ({ getMyMovies }) => {
   const [formData, setFormData] = useState({
-    origin: "",
-    destination: "",
+    // origin: "",
+    // destination: "",
     date: new Date("2021-02-02T21:11:54"),
     redirect: false,
   });
 
-  const { origin, destination, date } = formData;
+  const { date } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,17 +20,16 @@ const GetBuses = ({ getBuses }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await getBuses({ origin, destination, date });
+    await getMyMovies({ date });
     setFormData({ ...formData, redirect: true });
   };
 
   if (formData.redirect) {
     return <Redirect to="/queryResults" />;
   }
-
   return (
     <Fragment>
-      <SearchBus
+      <SearchMovie
         onChange={onChange}
         onSubmit={onSubmit}
         formData={formData}
@@ -41,13 +39,8 @@ const GetBuses = ({ getBuses }) => {
   );
 };
 
-GetBuses.propTypes = {
-  getBuses: PropTypes.func.isRequired,
-  isUserAuthenticated: PropTypes.bool,
+MyMovies.propTypes = {
+  getMyMovies: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  isUserAuthenticated: state.authUser.isUserAuthenticated,
-});
-
-export default connect(mapStateToProps, { getBuses })(GetBuses);
+export default connect(null, { getMyMovies })(MyMovies);

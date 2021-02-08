@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import Spinner from "../layout/Spinner";
 import UserInfoItem from "../../components/ticket/UserInfoItem";
 
-const UserInfo = ({ bus, date, seat, ticket, loading, userInfo }) => {
+const UserInfo = ({ movie, date, seat, ticket, loading, userInfo }) => {
   useEffect(() => {
-    userInfo(date, bus, seat);
+    userInfo(date, movie, seat);
   }, []);
 
   if (!loading) {
@@ -28,9 +28,9 @@ UserInfo.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  bus: state.bus.bus,
-  date: state.bus.date,
-  seat: state.bus.seat,
+  movie: state.movie.movie,
+  date: state.movie.date,
+  seat: state.movie.seat,
   ticket: state.ticket.ticket,
   loading: state.ticket.loading,
 });

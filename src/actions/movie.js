@@ -1,17 +1,17 @@
 import axios from "axios";
 import {
   GET_MY_FLEET,
-  GET_BUSES,
-  BUS_ERROR,
+  GET_MOVIES,
+  MOVIE_ERROR,
   SET_ALERT,
   SET_DATE,
-  GET_BUS_BY_ID,
-  SET_BUS,
+  GET_MOVIE_BY_ID,
+  SET_MOVIE,
   SET_SEAT,
 } from "./types";
 import { setAlert } from "./alert";
 
-// get all relevant buses acc. to user
+// get all relevant Movies acc. to user
 export const setDate = (date) => async (dispatch) => {
   dispatch({
     type: SET_DATE,
@@ -26,19 +26,19 @@ export const setSeat = (num) => async (dispatch) => {
   });
 };
 
-export const setBus = (bus) => async (dispatch) => {
+export const setMovie = (movie) => async (dispatch) => {
   dispatch({
-    type: SET_BUS,
-    payload: bus,
+    type: SET_MOVIE,
+    payload: movie,
   });
 };
 
-export const getBuses = (formData) => async (dispatch) => {
+export const getMovies = (formData) => async (dispatch) => {
   try {
-    const res = await axios.post("api/users/findBus", formData);
+    const res = await axios.post("api/users/findMovie", formData);
     dispatch(setDate(formData.date));
     dispatch({
-      type: GET_BUSES,
+      type: GET_MOVIES,
       payload: res.data,
     });
   } catch (err) {
@@ -49,16 +49,16 @@ export const getBuses = (formData) => async (dispatch) => {
     }
 
     dispatch({
-      type: BUS_ERROR,
+      type: MOVIE_ERROR,
     });
   }
 };
 
 //ADMIN - Add a bus
-export const addBus = (formData) => async (dispatch) => {
+export const addMovie = (formData) => async (dispatch) => {
   try {
     console.log(formData);
-    const res = await axios.post("api/admin/addBus", formData);
+    const res = await axios.post("api/admin/addMovie", formData);
 
     dispatch({
       type: SET_ALERT,
@@ -72,22 +72,22 @@ export const addBus = (formData) => async (dispatch) => {
     }
 
     dispatch({
-      type: BUS_ERROR,
+      type: MOVIE_ERROR,
     });
   }
 };
 
-export const getBusById = (bus, date) => async (dispatch) => {
+export const getMovieById = (movie, date) => async (dispatch) => {
   try {
-    dispatch(setBus(bus));
+    dispatch(setMovie(movie));
     const query = {
-      bus: bus._id,
+      movie: movie._id,
       date: date,
     };
-    const res = await axios.post("api/users/getBusById", query);
+    const res = await axios.post("api/users/getMovieById", query);
 
     dispatch({
-      type: GET_BUS_BY_ID,
+      type: GET_MOVIE_BY_ID,
       payload: res.data,
     });
   } catch (err) {
@@ -99,18 +99,18 @@ export const getBusById = (bus, date) => async (dispatch) => {
     }
 
     dispatch({
-      type: BUS_ERROR,
+      type: MOVIE_ERROR,
     });
   }
 };
 
-export const getMyBuses = (formData) => async (dispatch) => {
+export const getMyMovies = (formData) => async (dispatch) => {
   try {
     const query = {
-      origin: formData.origin,
-      destination: formData.destination,
+      // origin: formData.origin,
+      // destination: formData.destination,
     };
-    const res = await axios.post("api/admin/myBuses", query);
+    const res = await axios.post("api/admin/myMovies", query);
     dispatch(setDate(formData.date));
     dispatch({
       type: GET_MY_FLEET,
@@ -124,7 +124,7 @@ export const getMyBuses = (formData) => async (dispatch) => {
     }
 
     dispatch({
-      type: BUS_ERROR,
+      type: MOVIE_ERROR,
     });
   }
 };

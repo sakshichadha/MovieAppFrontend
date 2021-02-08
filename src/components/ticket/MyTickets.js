@@ -57,7 +57,7 @@ export default function myTickets({ tickets, cancelTicket }) {
                 </Avatar>
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h7" component="h2">
-                    {ticket.origin} to {ticket.destination}
+                    {ticket.movie_name}
                   </Typography>
                   <Typography gutterBottom variant="h7" component="h2">
                     {formatDate(ticket.date)}

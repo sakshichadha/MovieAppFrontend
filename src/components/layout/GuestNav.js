@@ -91,7 +91,7 @@ export default function GuestNav() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            <Link to="/"> NeoBus </Link>
+            <Link to="/"> E-movie </Link>
           </Typography>
 
           <div className={classes.grow} />

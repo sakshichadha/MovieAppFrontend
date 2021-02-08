@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600");
+
+body {
+  background: #f4f6fc;
+  color: #2e384d;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+main {
+  background: #fff;
+  margin: 0 auto;
+  max-width: 680px;
+  padding: 50px 30px;
+}
+
+p {
+  line-height: 1.4;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+code {
+  background: #f4f6fc;
+  border-radius: 5px;
+  color: #2d4284;
+  font-family: monospace;
+  padding: 4px 8px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.placeholder {
+  background: #f4f6fc;
+  border-radius: 5px;
+  height: 15vh;
+  min-height: 100px;
+  margin-bottom: 30px;
+}
+
+.modal__backdrop {
+  background: rgba(0, 0, 0, 0.65);
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.modal__container {
+  background: #fff;
+  border-radius: 5px;
+  max-width: 100%;
+  margin: 50px auto;
+  padding: 15px;
+  width: 300px;
+  margin-top: 10%;
+}
+
+.modal__title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.modal__content {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+button {
+  background: #000000;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  padding: 10px 15px;
+  transition: transform 100ms ease-out;
+}
+
+a {
+  border-radius: 5px;
+  color: #0d0d0e;
+  font-weight: 600;
+  padding: 2px 4px;
+  margin-left: -2px;
+  margin-right: -2px;
+}

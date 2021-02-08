@@ -43,14 +43,14 @@ const useStyles = makeStyles((theme) => ({
 export default function DetailForm({
   onChange,
   onSubmit,
-  bus,
+  movie,
   date,
   seat,
   formData,
 }) {
   const classes = useStyles();
-  const { name, email, phone } = formData;
-  const { origin, destination, startTime, endTime } = bus;
+  const { movie_name, name, email, phone } = formData;
+  const { startTime, endTime } = movie;
 
   return (
     <Container component="main" maxWidth="xs">
@@ -65,14 +65,14 @@ export default function DetailForm({
           </Typography>
 
           <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12} sm={6}>
               <Typography variant="h6" gutterBottom>
                 Origin: {origin}
               </Typography>
-            </Grid>
+            </Grid> */}
             <Grid item xs={12} sm={6}>
               <Typography variant="h6" gutterBottom>
-                Destination: {destination}
+                Name: {movie_name}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6}>

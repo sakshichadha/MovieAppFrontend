@@ -3,14 +3,15 @@ import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import { getBusById } from "../../actions/bus";
+import { getMovieById } from "../../actions/movie";
 import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import MovieIcon from "@material-ui/icons/Movie";
 
 import Avatar from "@material-ui/core/Avatar";
-import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
+
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -40,32 +41,29 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
 }));
-const BusCard = ({ getBusById, bus, date }) => {
+const MovieCard = ({ getMovieById, movie, date }) => {
   {
     const classes = useStyles();
 
-    return bus == null ? (
+    return movie == null ? (
       <Fragment>Loading</Fragment>
     ) : (
       <Fragment>
-        <Grid item key={bus._id} xs={12} sm={6} md={4}>
+        <Grid item key={movie._id} xs={12} sm={6} md={4}>
           <Card className={classes.card}>
             <Avatar className={classes.avatar}>
-              <DirectionsBusIcon />
+              <MovieIcon />
             </Avatar>
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h7" component="h2">
-                {bus.name}
+                {movie.name}
               </Typography>
-              <Typography gutterBottom variant="h7" component="h2">
-                {bus.origin} to {bus.destination}
-              </Typography>
-              <Typography>Start Time: {bus.startTime}</Typography>
-              <Typography>End Time: {bus.endTime}</Typography>
+              <Typography>Start Time: {movie.startTime}</Typography>
+              <Typography>End Time: {movie.endTime}</Typography>
             </CardContent>
             <CardActions>
               <Button
-                onClick={() => getBusById(bus, date)}
+                onClick={() => getMovieById(movie, date)}
                 size="small"
                 color="primary"
               >
@@ -79,4 +77,4 @@ const BusCard = ({ getBusById, bus, date }) => {
   }
 };
 
-export default connect(null, { getBusById })(BusCard);
+export default connect(null, { getMovieById })(MovieCard);
